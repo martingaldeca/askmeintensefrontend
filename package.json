@@ -3,25 +3,63 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "regenerateClient:local": "openapi -i http://localhost:3141/api/schema/ -o src/app/lib/client",
+    "capSync": "npx cap sync",
+    "buildAndroidApk": "npx cap build android --keystorepath my-release-key.keystore --keystorepass 123456 --keystorealias alias_name --keystorealiaspass 123456 --androidreleasetype APK",
+    "updateIconApk": "cordova-res android --skip-config --copy",
+    "signApk": "apksigner sign --ks android/my-release-key.keystore --ks-key-alias alias_name --ks-pass pass:123456 --key-pass pass:123456 android/app/build/outputs/apk/release/app-release-signed.apk",
+    "renameApk": "mv android/app/build/outputs/apk/release/app-release-signed.apk AskMeIntense.apk",
+    "generateApk": "rm -f AskMeIntense.apk && npm run build && npm run capSync && npm run buildAndroidApk && npm run updateIconApk && npm run signApk && npm run renameApk"
   },
+  "pre-commit": [
+    "format:fix",
+    "lint"
+  ],
   "dependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/app": "^6.0.2",
+    "@capacitor/core": "^6.2.0",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@material-tailwind/react": "^2.1.10",
+    "@mui/icons-material": "^6.2.1",
+    "@mui/material": "^6.2.1",
+    "@react-oauth/google": "^0.12.1",
+    "@reduxjs/toolkit": "^2.5.0",
+    "cordova-res": "^0.15.4",
+    "encoding": "^0.1.13",
+    "next": "15.1.2",
+    "next-auth": "^4.24.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.2"
+    "react-redux": "^9.2.0",
+    "react-toastify": "^11.0.2",
+    "styled-components": "^6.1.13",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@capacitor/cli": "^6.2.0",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.1.2",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "openapi-typescript-codegen": "^0.29.0",
+    "postcss": "^8",
+    "pre-commit": "^1.0.10",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
