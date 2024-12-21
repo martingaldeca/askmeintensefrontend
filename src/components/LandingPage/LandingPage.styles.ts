@@ -1,4 +1,4 @@
-import { styled } from "@mui/system";
+import { styled } from '@mui/system';
 
 export const LandingPageStyles = styled('div')({
   width: '100%',
@@ -7,4 +7,4 @@ export const LandingPageStyles = styled('div')({
   padding: '0 !important',
   margin: '0 !important',
   minHeight: 400,
-})
+});

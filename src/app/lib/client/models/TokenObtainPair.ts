@@ -8,4 +8,3 @@ export type TokenObtainPair = {
   readonly access?: string;
   readonly refresh?: string;
 };
-

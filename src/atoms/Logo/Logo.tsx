@@ -12,7 +12,7 @@ export type LogoProps = {
 
 const Logo = (props: LogoProps) => {
   const router = useRouter();
-  
+
   return (
     <Image
       onClick={() => router.push(PATHS.HOME)}

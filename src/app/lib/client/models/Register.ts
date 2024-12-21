@@ -3,10 +3,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Register = {
-    /**
-     * User's email.
-     */
-    email: string;
-    password: string;
+  /**
+   * User's email.
+   */
+  email: string;
+  password: string;
 };
-

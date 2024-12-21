@@ -3,18 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Level = {
-    uuid: string;
-    /**
-     * Level name
-     */
-    name: string;
-    /**
-     * Level's description
-     */
-    description?: string | null;
-    /**
-     * Level's number. It will determine the grouping of the level
-     */
-    number: number;
+  uuid: string;
+  /**
+   * Level name
+   */
+  name: string;
+  /**
+   * Level's description
+   */
+  description?: string | null;
+  /**
+   * Level's number. It will determine the grouping of the level
+   */
+  number: number;
 };
-

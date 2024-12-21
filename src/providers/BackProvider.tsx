@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { ReactNode, useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
-import { Capacitor } from "@capacitor/core";
-import { App } from "@capacitor/app";
-import { PATHS } from "@/constants/paths";
+import { ReactNode, useEffect, useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import { Capacitor } from '@capacitor/core';
+import { App } from '@capacitor/app';
+import { PATHS } from '@/constants/paths';
 
 interface BackProviderProps {
   children: ReactNode;
@@ -22,8 +22,8 @@ export default function BackProvider({ children }: BackProviderProps) {
   useEffect(() => {
     const handleCapacitorBack = async () => {
       if (isHome) {
-        console.log(Capacitor.getPlatform())
-        if (Capacitor.getPlatform() === "android" || Capacitor.getPlatform() === "ios") {
+        console.log(Capacitor.getPlatform());
+        if (Capacitor.getPlatform() === 'android' || Capacitor.getPlatform() === 'ios') {
           await App.exitApp();
         }
         // Si es web (ej: local, desktop browser), no hacemos nada
@@ -34,7 +34,7 @@ export default function BackProvider({ children }: BackProviderProps) {
 
     const handlePopState = () => {
       if (isHome) {
-        if (Capacitor.getPlatform() === "android" || Capacitor.getPlatform() === "ios") {
+        if (Capacitor.getPlatform() === 'android' || Capacitor.getPlatform() === 'ios') {
           App.exitApp();
         }
       } else {
@@ -42,16 +42,13 @@ export default function BackProvider({ children }: BackProviderProps) {
       }
     };
 
-    const removeCapacitorListenerPromise = App.addListener(
-      "backButton",
-      handleCapacitorBack
-    );
+    const removeCapacitorListenerPromise = App.addListener('backButton', handleCapacitorBack);
 
-    window.addEventListener("popstate", handlePopState);
+    window.addEventListener('popstate', handlePopState);
 
     return () => {
-      window.removeEventListener("popstate", handlePopState);
-      removeCapacitorListenerPromise.then((listener) => listener.remove());
+      window.removeEventListener('popstate', handlePopState);
+      removeCapacitorListenerPromise.then(listener => listener.remove());
     };
   }, [router, isHome]);
 

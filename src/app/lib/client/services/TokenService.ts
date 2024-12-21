@@ -17,9 +17,7 @@ export class TokenService {
    * @returns Register
    * @throws ApiError
    */
-  public static registerCreate(
-    requestBody: Register,
-  ): CancelablePromise<Register> {
+  public static registerCreate(requestBody: Register): CancelablePromise<Register> {
     return __request(OpenAPI, {
       method: 'POST',
       url: '/api/register/',
@@ -27,7 +25,7 @@ export class TokenService {
       mediaType: 'application/json',
     });
   }
-  
+
   /**
    * @param requestBody
    * @returns GoogleSocialAuth
@@ -41,7 +39,7 @@ export class TokenService {
       mediaType: 'application/json',
     });
   }
-  
+
   /**
    * Takes a set of user credentials and returns an access and refresh JSON web
    * token pair to prove the authentication of those credentials.
@@ -57,7 +55,7 @@ export class TokenService {
       mediaType: 'application/json',
     });
   }
-  
+
   /**
    * Takes a refresh type JSON web token and returns an access type JSON web
    * token if the refresh token is valid.
@@ -73,7 +71,7 @@ export class TokenService {
       mediaType: 'application/json',
     });
   }
-  
+
   /**
    * Takes a token and indicates if it is valid.  This view provides no
    * information about a token's fitness for a particular use.

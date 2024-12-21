@@ -11,7 +11,7 @@ export const CTAButtonStyled = styled(Button)({
   fontWeight: 'bold',
   height: '45px',
   backgroundColor: `white !important`,
-  color: "black",
+  color: 'black',
   '&:hover': {
     border: '1px solid',
     backgroundColor: `${theme.colors.textOnMainColor} !important`,
@@ -25,4 +25,3 @@ export const CTAButtonStyled = styled(Button)({
     color: theme.colors.textOnSecondaryColor,
   },
 });
-
