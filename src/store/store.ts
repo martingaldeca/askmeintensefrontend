@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { profileSlice } from '@/store/slices/profileSlice';
-import { categoriesSlice } from "@/store/slices/categoriesSlice";
-import { levelsSlice } from "@/store/slices/levelsSlice";
-import { gameOptionsSlice } from "@/store/slices/gameOptionsSlice";
-import { selectedQuestionSlice } from "@/store/slices/selectedQuestionSlice";
+import { categoriesSlice } from '@/store/slices/categoriesSlice';
+import { levelsSlice } from '@/store/slices/levelsSlice';
+import { gameOptionsSlice } from '@/store/slices/gameOptionsSlice';
+import { selectedQuestionSlice } from '@/store/slices/selectedQuestionSlice';
 
 const rootReducer = combineReducers({
   [profileSlice.name]: profileSlice.reducer,

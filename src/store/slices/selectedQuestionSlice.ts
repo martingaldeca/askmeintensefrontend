@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Question } from "@/app/lib/client";
+import { createSlice } from '@reduxjs/toolkit';
+import { Question } from '@/app/lib/client';
 
 export interface SelectedQuestionSlice {
   instance: Question | null;
@@ -7,7 +7,7 @@ export interface SelectedQuestionSlice {
 
 const initialState: SelectedQuestionSlice = {
   instance: null,
-}
+};
 
 export const selectedQuestionSlice = createSlice({
   name: 'selectedQuestion',
@@ -16,7 +16,7 @@ export const selectedQuestionSlice = createSlice({
     fetchSelectedQuestion: (state, action) => {
       state.instance = action.payload;
     },
-  }
+  },
 });
 
 export const { fetchSelectedQuestion } = selectedQuestionSlice.actions;

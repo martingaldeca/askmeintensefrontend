@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface GameOptionsState {
   selectedCategory: string | null;
@@ -11,7 +11,7 @@ const initialState: GameOptionsState = {
 };
 
 export const gameOptionsSlice = createSlice({
-  name: "gameOptions",
+  name: 'gameOptions',
   initialState,
   reducers: {
     setSelectedCategory(state, action: PayloadAction<string>) {

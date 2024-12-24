@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect, createContext, ReactNode } from 'react';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
@@ -32,16 +32,12 @@ const ScreenOrientationProvider: React.FC<ScreenOrientationProviderProps> = ({ c
       if (Capacitor.getPlatform() !== 'web') {
         ScreenOrientation.unlock()
           .then(() => console.log('Orientation unlocked'))
-          .catch((err) => console.error('Error unlocking orientation:', err));
+          .catch(err => console.error('Error unlocking orientation:', err));
       }
     };
   }, []);
 
-  return (
-    <ScreenOrientationContext.Provider value={null}>
-      {children}
-    </ScreenOrientationContext.Provider>
-  );
+  return <ScreenOrientationContext.Provider value={null}>{children}</ScreenOrientationContext.Provider>;
 };
 
 export default ScreenOrientationProvider;

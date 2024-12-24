@@ -7,8 +7,7 @@ type ActionTargetStyledProps = {
   size?: 'big' | 'small';
 };
 
-export const ActionTargetStyled = styled(Card)<ActionTargetStyledProps>
-(({ image, size = 'big' }) => ({
+export const ActionTargetStyled = styled(Card)<ActionTargetStyledProps>(({ image, size = 'big' }) => ({
   margin: 'auto',
   marginTop: '10%',
   backgroundImage: `url(${image})`,

@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Category } from "@/app/lib/client";
+import { createSlice } from '@reduxjs/toolkit';
+import { Category } from '@/app/lib/client';
 
 export interface CategoriesSlice {
   instance: Category[] | null;
@@ -7,7 +7,7 @@ export interface CategoriesSlice {
 
 const initialState: CategoriesSlice = {
   instance: null,
-}
+};
 
 export const categoriesSlice = createSlice({
   name: 'categories',
@@ -16,7 +16,7 @@ export const categoriesSlice = createSlice({
     fetchCategories: (state, action) => {
       state.instance = action.payload;
     },
-  }
+  },
 });
 
 export const { fetchCategories } = categoriesSlice.actions;

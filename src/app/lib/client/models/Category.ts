@@ -3,18 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Category = {
-    uuid: string;
-    /**
-     * Category name
-     */
-    name: string;
-    /**
-     * Category description
-     */
-    description?: string | null;
-    /**
-     * Category icon
-     */
-    icon: string;
+  uuid: string;
+  /**
+   * Category name
+   */
+  name: string;
+  /**
+   * Category description
+   */
+  description?: string | null;
+  /**
+   * Category icon
+   */
+  icon: string;
 };
-
