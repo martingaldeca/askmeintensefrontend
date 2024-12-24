@@ -1,3 +1,72 @@
+"use client";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import CardSelector from "@/components/CardSelector/CardSelector";
+import { fetchCategories } from "@/store/slices/categoriesSlice";
+import { fetchLevels } from "@/store/slices/levelsSlice";
+import { QuestionsService } from "@/app/lib/client";
+import { CTAButton } from "@/atoms";
+import { Container } from "@mui/material";
+import { theme } from "@/constants/theme";
+import { RootState } from "@/store/store";
+import { useCategories, useLevels } from "@/hooks";
+import { PATHS } from "@/constants/paths";
+import { useRouter } from "next/navigation";
+
 export default function Pregame() {
-  return <div>pregame</div>;
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { categories } = useCategories();
+  const { levels } = useLevels();
+  const { selectedCategory, selectedLevel } = useSelector((state: RootState) => state.gameOptions);
+  
+  useEffect(() => {
+    QuestionsService.categoriesList()
+      .then((data) => {
+        dispatch(fetchCategories(data.results));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [dispatch]);
+  
+  useEffect(() => {
+    QuestionsService.levelsList()
+      .then((data) => {
+        dispatch(fetchLevels(data.results));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [dispatch]);
+  
+  function handleStart() {
+    if (!selectedCategory || !selectedLevel) return;
+    router.push(PATHS.QUESTION_DETAIL);
+  }
+  
+  return (
+    <div>
+      <CardSelector
+        items={categories}
+        image="categories"
+        buttonText="Select category"
+        type="category"
+      />
+      <CardSelector
+        items={levels}
+        image="levels"
+        buttonText="Select level"
+        type="level"
+      />
+      <Container sx={{ mt: theme.sizes.bigMargin }}>
+        <CTAButton
+          text="Start"
+          type="standalone"
+          onClick={handleStart}
+          disabled={!selectedCategory || !selectedLevel}
+        />
+      </Container>
+    </div>
+  );
 }

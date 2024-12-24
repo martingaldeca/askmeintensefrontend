@@ -16,6 +16,7 @@ export type { PaginatedLevelList } from './models/PaginatedLevelList';
 export type { PaginatedQuestionList } from './models/PaginatedQuestionList';
 export type { Question } from './models/Question';
 export type { Register } from './models/Register';
+export type { SimpleQuestion } from './models/SimpleQuestion';
 export { StatusEnum } from './models/StatusEnum';
 export type { TokenObtainPair } from './models/TokenObtainPair';
 export type { TokenRefresh } from './models/TokenRefresh';

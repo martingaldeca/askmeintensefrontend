@@ -3,15 +3,16 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Me = {
-  uuid: string;
-  first_name?: string;
-  last_name?: string;
-  /**
-   * User's email.
-   */
-  email: string;
-  /**
-   * User's birthdate.
-   */
-  birthdate?: string | null;
+    uuid: string;
+    first_name?: string;
+    last_name?: string;
+    /**
+     * User's email.
+     */
+    email: string;
+    /**
+     * User's birthdate.
+     */
+    birthdate?: string | null;
 };
+

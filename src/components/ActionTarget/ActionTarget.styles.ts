@@ -2,12 +2,13 @@ import { Card } from '@mui/material';
 import { styled } from '@mui/system';
 import { theme } from '@/constants/theme';
 
-type ActionTargetStylesProps = {
+type ActionTargetStyledProps = {
   image: string;
   size?: 'big' | 'small';
 };
 
-export const ActionTargetStyles = styled(Card)<ActionTargetStylesProps>(({ image, size = 'big' }) => ({
+export const ActionTargetStyled = styled(Card)<ActionTargetStyledProps>
+(({ image, size = 'big' }) => ({
   margin: 'auto',
   marginTop: '10%',
   backgroundImage: `url(${image})`,

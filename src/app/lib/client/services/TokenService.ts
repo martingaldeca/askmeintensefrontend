@@ -25,7 +25,7 @@ export class TokenService {
       mediaType: 'application/json',
     });
   }
-
+  
   /**
    * @param requestBody
    * @returns GoogleSocialAuth
@@ -55,7 +55,7 @@ export class TokenService {
       mediaType: 'application/json',
     });
   }
-
+  
   /**
    * Takes a refresh type JSON web token and returns an access type JSON web
    * token if the refresh token is valid.
@@ -71,7 +71,7 @@ export class TokenService {
       mediaType: 'application/json',
     });
   }
-
+  
   /**
    * Takes a token and indicates if it is valid.  This view provides no
    * information about a token's fitness for a particular use.

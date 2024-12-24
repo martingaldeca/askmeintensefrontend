@@ -1,6 +1,6 @@
 import { styled } from '@mui/system';
 
-export const LandingPageStyles = styled('div')({
+export const LandingPageStyled = styled('div')({
   width: '100%',
   position: 'relative',
   bottom: '0',

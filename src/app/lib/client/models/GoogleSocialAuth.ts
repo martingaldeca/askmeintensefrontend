@@ -3,5 +3,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export type GoogleSocialAuth = {
-  auth_token: string;
+    auth_token: string;
 };
+

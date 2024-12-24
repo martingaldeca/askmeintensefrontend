@@ -4,7 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { NavbarStyles } from '@/components/Navbar/Navbar.styles';
+import { NavbarStyled } from '@/components/Navbar/Navbar.styles';
 import { useRouter } from 'next/navigation';
 import { PATHS } from '@/constants/paths';
 import { Logo } from '@/atoms';
@@ -13,7 +13,7 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <NavbarStyles position="static">
+    <NavbarStyled position="static">
       <Toolbar>
         <IconButton size="large" edge="start" color="inherit" aria-label="menu" className="mr-2">
           <MenuIcon />
@@ -28,7 +28,7 @@ const Navbar = () => {
           {process.env.NEXT_PUBLIC_PROJECT_NAME}
         </Typography>
       </Toolbar>
-    </NavbarStyles>
+    </NavbarStyled>
   );
 };
 
