@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { Category, Level } from '@/app/lib/client';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';

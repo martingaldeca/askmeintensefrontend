@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Category, Level } from "@/app/lib/client";
+import { Category, Level } from '@/app/lib/client';
 
 export interface GameOptionsState {
   selectedCategory: Category | null;
