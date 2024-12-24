@@ -50,13 +50,13 @@ export default function Pregame() {
       <CardSelector
         items={categories}
         image="categories"
-        buttonText={selectedCategory?.name || "Selecciona categoría"}
+        buttonText={selectedCategory?.name || 'Selecciona categoría'}
         type="category"
       />
       <CardSelector
         items={levels}
         image="levels"
-        buttonText={selectedLevel ? `${selectedLevel.number} - ${selectedLevel.name}` : "Selecciona nivel"}
+        buttonText={selectedLevel ? `${selectedLevel.number} - ${selectedLevel.name}` : 'Selecciona nivel'}
         type="level"
       />
       <Container sx={{ mt: theme.sizes.bigMargin }}>

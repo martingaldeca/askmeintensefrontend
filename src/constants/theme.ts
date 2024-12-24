@@ -15,7 +15,7 @@ export const theme = {
 
     mainButtonColor: '#ffffff',
     mainButtonTextColor: '#000000',
-    
+
     oddRowColor: '#f2f2f2',
     evenRowColor: '#ffffff',
     hoverColor: '#bababa',

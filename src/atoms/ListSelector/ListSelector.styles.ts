@@ -23,10 +23,10 @@ export const ListSelectorButtonStyled = styled(Button)({
 
 type MenuItemStyledProps = {
   odd?: boolean;
-}
+};
 
 export const MenuItemStyled = styled(MenuItem, {
-  shouldForwardProp: (prop) => prop !== 'odd',
+  shouldForwardProp: prop => prop !== 'odd',
 })<MenuItemStyledProps>(({ odd }) => ({
   backgroundColor: odd ? theme.colors.oddRowColor : theme.colors.evenRowColor,
   width: '100%',
