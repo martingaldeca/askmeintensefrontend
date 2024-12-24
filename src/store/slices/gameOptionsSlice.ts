@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Category, Level } from "@/app/lib/client";
 
 export interface GameOptionsState {
-  selectedCategory: string | null;
-  selectedLevel: string | null;
+  selectedCategory: Category | null;
+  selectedLevel: Level | null;
 }
 
 const initialState: GameOptionsState = {
@@ -14,10 +15,10 @@ export const gameOptionsSlice = createSlice({
   name: 'gameOptions',
   initialState,
   reducers: {
-    setSelectedCategory(state, action: PayloadAction<string>) {
+    setSelectedCategory(state, action: PayloadAction<Category>) {
       state.selectedCategory = action.payload;
     },
-    setSelectedLevel(state, action: PayloadAction<string>) {
+    setSelectedLevel(state, action: PayloadAction<Level>) {
       state.selectedLevel = action.payload;
     },
   },

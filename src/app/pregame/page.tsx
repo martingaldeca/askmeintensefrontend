@@ -41,7 +41,7 @@ export default function Pregame() {
   }, [dispatch]);
 
   function handleStart() {
-    if (!selectedCategory || !selectedLevel) return;
+    if (!selectedCategory?.uuid || !selectedLevel?.uuid) return;
     router.push(PATHS.QUESTION_DETAIL);
   }
 
@@ -54,7 +54,7 @@ export default function Pregame() {
           text="Start"
           type="standalone"
           onClick={handleStart}
-          disabled={!selectedCategory || !selectedLevel}
+          disabled={!selectedCategory?.uuid || !selectedLevel?.uuid}
         />
       </Container>
     </div>

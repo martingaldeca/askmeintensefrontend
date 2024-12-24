@@ -22,6 +22,9 @@ export const theme = {
     smallMargin: '5px',
     mediumMargin: '15px',
     bigMargin: '30px',
+    smallPadding: '5px',
+    mediumPadding: '15px',
+    bigPadding: '30px',
   },
   cardBorderRadius: '16px',
 };

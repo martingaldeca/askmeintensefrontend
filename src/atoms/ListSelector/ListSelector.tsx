@@ -1,3 +1,4 @@
+"use client";
 import { Category, Level } from '@/app/lib/client';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -25,12 +26,13 @@ const ListSelector = (props: ListSelectorProps) => {
   const handleCloseMenu = (newValue?: Category | Level) => {
     if (newValue) {
       if (props.type === 'category') {
-        setSelectedText(newValue.name);
-        dispatch(setSelectedCategory(newValue.uuid));
+        const castedValue = newValue as Category;
+        setSelectedText(castedValue.name);
+        dispatch(setSelectedCategory(castedValue));
       } else if (props.type === 'level') {
         const castedValue = newValue as Level;
         setSelectedText(`${castedValue.number} - ${castedValue.name}`);
-        dispatch(setSelectedLevel(castedValue.uuid));
+        dispatch(setSelectedLevel(castedValue));
       }
     }
     setAnchorEl(null);
