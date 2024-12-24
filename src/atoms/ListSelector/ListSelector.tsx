@@ -1,11 +1,10 @@
 'use client';
 import { Category, Level } from '@/app/lib/client';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import { MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setSelectedCategory, setSelectedLevel } from '@/store/slices/gameOptionsSlice';
-import { ListSelectorButtonStyled, ListSelectorStyled } from '@/atoms/ListSelector/ListSelector.styles';
+import { ListSelectorButtonStyled, ListSelectorStyled, MenuItemStyled } from '@/atoms/ListSelector/ListSelector.styles';
 
 export type ListSelectorProps = {
   items: Category[] | Level[] | null;
@@ -44,11 +43,30 @@ const ListSelector = (props: ListSelectorProps) => {
         {selectedText}
       </ListSelectorButtonStyled>
 
-      <Menu anchorEl={anchorEl} open={open} onClose={() => handleCloseMenu()}>
-        {props.items?.map(item => (
-          <MenuItem key={item.uuid} onClick={() => handleCloseMenu(item)}>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={() => handleCloseMenu()}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        slotProps={{
+          paper: {
+            sx: {
+              width: anchorEl ? anchorEl.offsetWidth : undefined,
+            },
+          },
+        }}
+      >
+        {props.items?.map((item, index) => (
+          <MenuItemStyled key={item.uuid} odd={index % 2 !== 0} onClick={() => handleCloseMenu(item)}>
             {'number' in item ? `${item.number} - ${item.name}` : item.name}
-          </MenuItem>
+          </MenuItemStyled>
         ))}
       </Menu>
     </ListSelectorStyled>

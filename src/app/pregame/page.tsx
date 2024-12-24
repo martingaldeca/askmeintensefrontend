@@ -47,11 +47,21 @@ export default function Pregame() {
 
   return (
     <div>
-      <CardSelector items={categories} image="categories" buttonText="Select category" type="category" />
-      <CardSelector items={levels} image="levels" buttonText="Select level" type="level" />
+      <CardSelector
+        items={categories}
+        image="categories"
+        buttonText={selectedCategory?.name || "Selecciona categoría"}
+        type="category"
+      />
+      <CardSelector
+        items={levels}
+        image="levels"
+        buttonText={selectedLevel ? `${selectedLevel.number} - ${selectedLevel.name}` : "Selecciona nivel"}
+        type="level"
+      />
       <Container sx={{ mt: theme.sizes.bigMargin }}>
         <CTAButton
-          text="Start"
+          text="¡Empezar!"
           type="standalone"
           onClick={handleStart}
           disabled={!selectedCategory?.uuid || !selectedLevel?.uuid}

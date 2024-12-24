@@ -21,17 +21,4 @@ export const CTAButtonStyled = styled(Button)<CTAButtonStyledProps>(({ buttontyp
 
     display: 'block',
   }),
-
-  '&:hover': {
-    border: '1px solid',
-    backgroundColor: `${theme.colors.textOnMainColor} !important`,
-    borderColor: theme.colors.secondaryColor,
-    color: theme.colors.textOnSecondaryColor,
-  },
-  '&:active': {
-    boxShadow: 'none',
-    backgroundColor: `${theme.colors.secondaryColor} !important`,
-    borderColor: theme.colors.secondaryColor,
-    color: theme.colors.textOnSecondaryColor,
-  },
 }));
