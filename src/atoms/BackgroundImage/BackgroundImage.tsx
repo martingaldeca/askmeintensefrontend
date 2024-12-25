@@ -1,15 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
-import { BackgroundImageStyled } from "./BackgroundImage.styles";
+import React from 'react';
+import { BackgroundImageStyled } from './BackgroundImage.styles';
 
 export type BackgroundImageProps = {
-  image: "login" | "register";
-}
+  image: 'login' | 'register';
+};
 
 const BackgroundImage = (props: BackgroundImageProps) => {
-  return (
-    <BackgroundImageStyled image={props.image}/>
-  );
-}
+  return <BackgroundImageStyled image={props.image} />;
+};
 export default BackgroundImage;

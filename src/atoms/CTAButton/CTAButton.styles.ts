@@ -9,37 +9,30 @@ type CTAButtonStyledProps = {
 };
 
 export const CTAButtonStyled = styled(Button, {
-  shouldForwardProp: (prop) => prop !== 'buttontype' && prop !== 'primaryButton' && prop !== 'withMargin',
-})<CTAButtonStyledProps>(
-  (
-    {
-      buttontype = 'standalone',
-      primaryButton = true,
-      withMargin = false,
-    }
-  ) => (
-    {
-      width: '80%',
-      boxShadow: 'none',
-      textTransform: 'none',
-      borderRadius: theme.cardBorderRadius,
-      fontWeight: 'bold',
-      cursor: 'pointer',
-      backgroundColor: primaryButton ? `${theme.colors.mainButtonColor} !important` : `${theme.colors.secondaryButtonColor} !important`,
-      color: primaryButton ? theme.colors.mainButtonTextColor : theme.colors.secondaryButtonTextColor,
-      border: primaryButton ? `1px solid ${theme.colors.mainButtonTextColor} !important` : `1px solid ${theme.colors.secondaryButtonTextColor} !important`,
-      
-      ...(buttontype === 'standalone' && {
-        height: theme.sizes.standaloneButtonHeight,
-        margin: '0 auto',
-        display: 'block',
-      }),
-      
-      
-      ...(!withMargin && {
-        marginTop: theme.sizes.mediumMargin,
-        marginDown: theme.sizes.mediumMargin,
-      }),
-    }
-  )
-);
+  shouldForwardProp: prop => prop !== 'buttontype' && prop !== 'primaryButton' && prop !== 'withMargin',
+})<CTAButtonStyledProps>(({ buttontype = 'standalone', primaryButton = true, withMargin = false }) => ({
+  width: '80%',
+  boxShadow: 'none',
+  textTransform: 'none',
+  borderRadius: theme.cardBorderRadius,
+  fontWeight: 'bold',
+  cursor: 'pointer',
+  backgroundColor: primaryButton
+    ? `${theme.colors.mainButtonColor} !important`
+    : `${theme.colors.secondaryButtonColor} !important`,
+  color: primaryButton ? theme.colors.mainButtonTextColor : theme.colors.secondaryButtonTextColor,
+  border: primaryButton
+    ? `1px solid ${theme.colors.mainButtonTextColor} !important`
+    : `1px solid ${theme.colors.secondaryButtonTextColor} !important`,
+
+  ...(buttontype === 'standalone' && {
+    height: theme.sizes.standaloneButtonHeight,
+    margin: '0 auto',
+    display: 'block',
+  }),
+
+  ...(!withMargin && {
+    marginTop: theme.sizes.mediumMargin,
+    marginDown: theme.sizes.mediumMargin,
+  }),
+}));

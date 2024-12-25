@@ -12,7 +12,13 @@ export type CTAButtonProps = {
 
 const CTAButton = (props: CTAButtonProps) => {
   return (
-    <CTAButtonStyled onClick={props.onClick} disabled={props.disabled} buttontype={props.type} type="submit" primaryButton={props.primaryButton}>
+    <CTAButtonStyled
+      onClick={props.onClick}
+      disabled={props.disabled}
+      buttontype={props.type}
+      type="submit"
+      primaryButton={props.primaryButton}
+    >
       {props.text}
     </CTAButtonStyled>
   );
