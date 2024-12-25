@@ -4,5 +4,14 @@ import ActionTarget from './ActionTarget/ActionTarget';
 import CardSelector from './CardSelector/CardSelector';
 import QuestionDetail from './QuestionDetail/QuestionDetail';
 import CategoryLevelInfo from './CategoryLevelInfo/CategoryLevelInfo';
+import LoginOrRegisterLandingContainer from "./LoginLandingContainer/LoginLandingContainer";
 
-export { Navbar, LandingPage, ActionTarget, CardSelector, QuestionDetail, CategoryLevelInfo };
+export {
+  Navbar,
+  LandingPage,
+  ActionTarget,
+  CardSelector,
+  QuestionDetail,
+  CategoryLevelInfo,
+  LoginOrRegisterLandingContainer,
+};

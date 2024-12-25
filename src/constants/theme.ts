@@ -8,13 +8,19 @@ export const theme = {
     secondaryColor: '#e4dc43',
     secondaryBorderColor: '#8a3907',
     secondaryColorShadow: '#efa750',
-    textOnSecondaryColor: '#000000',
+    textOnSecondaryColor: '#1976d2',
 
     link: '#E49143FF',
     underlinedLinkColor: '#000000',
 
-    mainButtonColor: '#ffffff',
-    mainButtonTextColor: '#000000',
+    mainButtonColor: '#1976d2',
+    mainButtonTextColor: '#ffffff',
+    secondaryButtonColor: '#ffffff',
+    secondaryButtonTextColor: '#1976d2',
+
+    listSelectorColor: '#ffffff',
+    listSelectorTextColor: '#1976d2',
+    listSelectorBorderColor: '#1976d2',
 
     oddRowColor: '#f2f2f2',
     evenRowColor: '#ffffff',
@@ -29,6 +35,11 @@ export const theme = {
     smallPadding: '5px',
     mediumPadding: '15px',
     bigPadding: '30px',
+    verticalSizeSmall: '30vh',
+    verticalSizeMedium: '60vh',
+    verticalSizeFull: '100vh',
+    verticalSizeFillSmall: '65vh',
+    verticalSizeFillMedium: '40vh',
   },
   cardBorderRadius: '16px',
 };

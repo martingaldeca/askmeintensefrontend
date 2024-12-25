@@ -87,7 +87,7 @@ export default function QuestionDetail(props: QuestionDetailProps) {
         <IconButton onClick={handleUnlike} color="error">
           <ThumbDownIcon />
         </IconButton>
-        <CTAButton text="Sugerencia de cambio" type="standalone" onClick={handleSuggestion} />
+        <CTAButton text="Sugerencia de cambio" onClick={handleSuggestion} />
       </Box>
     </Box>
   );

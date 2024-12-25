@@ -6,11 +6,13 @@ export type CTAButtonProps = {
   onClick?: (event: React.MouseEvent) => void;
   disabled?: boolean;
   type?: 'standalone' | 'insideAction';
+  primaryButton?: boolean;
+  withMargin?: boolean;
 };
 
 const CTAButton = (props: CTAButtonProps) => {
   return (
-    <CTAButtonStyled onClick={props.onClick} disabled={props.disabled} buttontype={props.type} type="submit">
+    <CTAButtonStyled onClick={props.onClick} disabled={props.disabled} buttontype={props.type} type="submit" primaryButton={props.primaryButton}>
       {props.text}
     </CTAButtonStyled>
   );
