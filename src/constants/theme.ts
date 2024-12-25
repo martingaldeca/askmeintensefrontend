@@ -36,7 +36,7 @@ export const theme = {
     mediumPadding: '15px',
     bigPadding: '30px',
     verticalSizeSmall: '30vh',
-    verticalSizeMedium: '60vh',
+    verticalSizeMedium: '65vh',
     verticalSizeFull: '100vh',
     verticalSizeFillSmall: '65vh',
     verticalSizeFillMedium: '40vh',

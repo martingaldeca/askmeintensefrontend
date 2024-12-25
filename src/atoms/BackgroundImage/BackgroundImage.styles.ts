@@ -16,5 +16,7 @@ export const BackgroundImageStyled = styled('div', {
   backgroundImage: `url("/img/BackgroundImages/${props.image}.png")`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
+  margin: 0,
+  padding: 0,
   zIndex: -1,
 }));
