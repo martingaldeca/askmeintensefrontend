@@ -29,10 +29,12 @@ const GeneralBottomNavigation = () => {
         router.push(PATHS.HOME);
         break;
       case 1:
-      case 2:
         toast.error('Not yet available. Sorry!', {
           toastId: 'not-available',
         });
+        break;
+      case 2:
+        router.push(PATHS.LOGIN_OR_REGISTER);
         break;
       default:
         break;

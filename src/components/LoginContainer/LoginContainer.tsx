@@ -145,10 +145,10 @@ export default function LoginContainer() {
           </ForgotPasswordStyled>
         </InputContainerStyled>
 
-        <CTAButton text="Login" submit={true} />
+        <CTAButton text="Login" submit={true} withMargin={true} />
       </form>
 
-      <CTAButton text="Registrarse" onClick={handleSignUp} primaryButton={false} />
+      <CTAButton text="Registrarse" onClick={handleSignUp} primaryButton={false} withMargin={true} />
     </LoginContainerStyled>
   );
 }

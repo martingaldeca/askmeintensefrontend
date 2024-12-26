@@ -13,7 +13,6 @@ export type CTAButtonProps = {
 };
 
 const CTAButton = (props: CTAButtonProps) => {
-  // Determinar qué texto mostrar
   const buttonText = props.disabled && props.disabledText ? props.disabledText : props.text;
 
   return (

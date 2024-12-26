@@ -31,7 +31,7 @@ export const CTAButtonStyled = styled(Button, {
     display: 'block',
   }),
 
-  ...(!withMargin && {
+  ...(withMargin && {
     marginTop: theme.sizes.mediumMargin,
     marginBottom: theme.sizes.mediumMargin,
   }),
