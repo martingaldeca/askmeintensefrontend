@@ -13,27 +13,18 @@ import { TokenObtainPair, TokenService } from '@/app/lib/client';
 import { useSession } from '@/providers/SessionProvider';
 import { PATHS } from '@/constants/paths';
 import { useRouter } from 'next/navigation';
-
-// Importamos dos íconos de MUI, por ejemplo:
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
-// Ejemplo de animación shake (puedes moverlo a un archivo CSS o styled-components)
-const shakeAnimation = {
-  animation: 'shake 0.3s',
-};
 
 export default function LoginContainer() {
   const { setUser } = useSession();
   const router = useRouter();
 
-  // Manejo de estados para errores y shake
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [shakeEmail, setShakeEmail] = useState(false);
   const [shakePassword, setShakePassword] = useState(false);
 
-  // Manejo de la visibilidad de la contraseña
   const [showPassword, setShowPassword] = useState(false);
   const toggleShowPassword = () => setShowPassword(prev => !prev);
 
@@ -46,13 +37,12 @@ export default function LoginContainer() {
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    resetErrors(); // Limpiar errores previos
+    resetErrors();
 
     const formData = new FormData(event.currentTarget);
     const email = formData.get('email')?.toString() || '';
     const password = formData.get('password')?.toString() || '';
 
-    // Validar email
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
       toast.error('Por favor introduce un correo electrónico válido', {
         toastId: 'email-error',
@@ -62,7 +52,6 @@ export default function LoginContainer() {
       return;
     }
 
-    // Validar password
     if (!password || password.length < 7) {
       toast.error('Por favor introduce una contraseña válida de al menos 7 caracteres', {
         toastId: 'password-error',
@@ -86,10 +75,9 @@ export default function LoginContainer() {
         });
         router.push(PATHS.HOME);
       } else {
-        throw new Error('Error al obtener los tokens de autenticación');
+        throw new Error('Auth error getting token');
       }
     } catch (error) {
-      // Si hay error desde la API, pintar ambos campos
       setEmailError(true);
       setShakeEmail(true);
       setPasswordError(true);
@@ -116,31 +104,6 @@ export default function LoginContainer() {
 
   return (
     <LoginContainerStyled>
-      {/* Agregamos keyframes en línea para la demostración.
-          Puedes moverlo a tu global CSS / styled components */}
-      <style jsx global>{`
-        @keyframes shake {
-          0% {
-            transform: translateX(0);
-          }
-          20% {
-            transform: translateX(-5px);
-          }
-          40% {
-            transform: translateX(5px);
-          }
-          60% {
-            transform: translateX(-5px);
-          }
-          80% {
-            transform: translateX(5px);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-      `}</style>
-
       <form onSubmit={handleLogin}>
         <InputContainerStyled>
           <TextField
@@ -151,7 +114,7 @@ export default function LoginContainer() {
             // MUI: activar estilo de error
             error={emailError}
             // Para el shake
-            style={shakeEmail ? shakeAnimation : {}}
+            className={shakeEmail ? 'shake' : ''}
             onAnimationEnd={() => setShakeEmail(false)} // Para quitar el shake al terminar
           />
 
@@ -162,17 +125,18 @@ export default function LoginContainer() {
             variant="standard"
             fullWidth
             error={passwordError}
-            style={shakePassword ? shakeAnimation : {}}
+            className={shakePassword ? 'shake' : ''}
             onAnimationEnd={() => setShakePassword(false)}
-            // Añadimos el ícono para mostrar/ocultar la contraseña
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton aria-label="toggle password visibility" onClick={toggleShowPassword} edge="end">
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
+            slotProps={{
+              input: {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton aria-label="toggle password visibility" onClick={toggleShowPassword} edge="end">
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              },
             }}
           />
 

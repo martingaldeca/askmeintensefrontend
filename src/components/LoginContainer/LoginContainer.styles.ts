@@ -14,7 +14,7 @@ export const ForgotPasswordStyled = styled(Typography)({
   cursor: 'pointer',
   marginTop: theme.sizes.smallMargin,
   marginLeft: theme.sizes.bigMargin,
-  textAlign: 'right', // añade esto
+  textAlign: 'right',
 });
 
 export const InputContainerStyled = styled('div')({

@@ -6,6 +6,7 @@ import ToastProvider from '@/providers/ToastProvider';
 import BackProvider from '@/providers/BackProvider';
 import ScreenOrientationProvider from '@/providers/ScreenOrientationProvider';
 import SessionProvider from '@/providers/SessionProvider';
+import { GeneralBottomNavigation } from '@/components';
 
 export const metadata: Metadata = {
   title: 'AskMeIntense',
@@ -21,7 +22,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <StoreProvider>
               <RedirectProvider>
                 <BackProvider>
-                  <ToastProvider>{children}</ToastProvider>
+                  <ToastProvider>
+                    {children}
+                    <GeneralBottomNavigation />
+                  </ToastProvider>
                 </BackProvider>
               </RedirectProvider>
             </StoreProvider>

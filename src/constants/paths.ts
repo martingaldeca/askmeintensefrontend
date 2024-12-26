@@ -6,3 +6,5 @@ export enum PATHS {
   PREGAME = '/pregame',
   HOME = '/',
 }
+
+export const PATHS_WITHOUT_NAVBAR: PATHS[] = [PATHS.LOGIN, PATHS.REGISTER, PATHS.LOGIN_OR_REGISTER];
