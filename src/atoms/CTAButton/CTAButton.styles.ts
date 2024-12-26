@@ -33,6 +33,17 @@ export const CTAButtonStyled = styled(Button, {
 
   ...(!withMargin && {
     marginTop: theme.sizes.mediumMargin,
-    marginDown: theme.sizes.mediumMargin,
+    marginBottom: theme.sizes.mediumMargin,
   }),
+
+  '&.Mui-disabled': {
+    backgroundColor: primaryButton ? theme.colors.mainButtonColor : theme.colors.secondaryButtonColor,
+    color: primaryButton ? theme.colors.mainButtonTextColor : theme.colors.secondaryButtonTextColor,
+    border: primaryButton
+      ? `1px solid ${theme.colors.mainButtonTextColor}`
+      : `1px solid ${theme.colors.secondaryButtonTextColor}`,
+
+    opacity: 0.6,
+    cursor: 'not-allowed',
+  },
 }));

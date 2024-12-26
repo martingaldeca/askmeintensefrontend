@@ -2,6 +2,7 @@
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { theme } from '@/constants/theme';
 
 interface ToastProviderProps {
   children: React.ReactNode;
@@ -22,7 +23,12 @@ export default function ToastProvider({ children }: ToastProviderProps) {
         draggable
         pauseOnHover
         theme="light"
-        style={{ width: '30%' }}
+        style={{
+          width: theme.sizes.toast.toastWidth,
+          textAlign: 'center',
+          marginLeft: '5%',
+          fontSize: theme.sizes.toast.toastFontSize,
+        }}
       />
     </>
   );

@@ -1,0 +1,54 @@
+'use client';
+
+import { ReactNode, useEffect, useState, createContext, useContext } from 'react';
+import { useRouter } from 'next/navigation';
+import { PATHS } from '@/constants/paths';
+import { TokenObtainPair } from '@/app/lib/client';
+
+interface SessionProviderProps {
+  children: ReactNode;
+}
+
+type SessionContextType = {
+  user: TokenObtainPair | null;
+  setUser: (user: TokenObtainPair | null) => void;
+  logout: () => void;
+};
+
+const SessionContext = createContext<SessionContextType | undefined>(undefined);
+
+export function useSession() {
+  const context = useContext(SessionContext);
+  if (!context) {
+    throw new Error('useSession must be used in a SessionProvider');
+  }
+  return context;
+}
+
+export default function SessionProvider({ children }: SessionProviderProps) {
+  const [user, setUserState] = useState<TokenObtainPair | null>(null);
+  const router = useRouter();
+
+  const setUser = (user: TokenObtainPair | null) => {
+    setUserState(user);
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('user');
+    }
+  };
+
+  const logout = () => {
+    setUser(null);
+    router.push(PATHS.LOGIN_OR_REGISTER);
+  };
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUserState(JSON.parse(storedUser));
+    }
+  }, []);
+
+  return <SessionContext.Provider value={{ user, setUser, logout }}>{children}</SessionContext.Provider>;
+}

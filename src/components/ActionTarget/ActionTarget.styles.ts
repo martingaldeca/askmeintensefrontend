@@ -12,7 +12,7 @@ export const ActionTargetStyled = styled(Card)<ActionTargetStyledProps>(({ image
   marginTop: '10%',
   backgroundImage: `url(${image})`,
   backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  backgroundPosition: 'right',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

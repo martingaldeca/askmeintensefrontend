@@ -60,7 +60,12 @@ export default function PregamePage() {
         type="level"
       />
       <Container sx={{ mt: theme.sizes.bigMargin }}>
-        <CTAButton text="¡Empezar!" onClick={handleStart} disabled={!selectedCategory?.uuid || !selectedLevel?.uuid} />
+        <CTAButton
+          text="¡Empezar!"
+          onClick={handleStart}
+          disabled={!selectedCategory?.uuid || !selectedLevel?.uuid}
+          disabledText="Selecciona Categoría y Nivel"
+        />
       </Container>
     </div>
   );

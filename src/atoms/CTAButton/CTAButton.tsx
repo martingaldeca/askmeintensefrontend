@@ -8,18 +8,24 @@ export type CTAButtonProps = {
   type?: 'standalone' | 'insideAction';
   primaryButton?: boolean;
   withMargin?: boolean;
+  submit?: boolean;
+  disabledText?: string;
 };
 
 const CTAButton = (props: CTAButtonProps) => {
+  // Determinar qué texto mostrar
+  const buttonText = props.disabled && props.disabledText ? props.disabledText : props.text;
+
   return (
     <CTAButtonStyled
       onClick={props.onClick}
       disabled={props.disabled}
       buttontype={props.type}
-      type="submit"
+      type={props.submit ? 'submit' : 'button'}
       primaryButton={props.primaryButton}
+      withMargin={props.withMargin}
     >
-      {props.text}
+      {buttonText}
     </CTAButtonStyled>
   );
 };

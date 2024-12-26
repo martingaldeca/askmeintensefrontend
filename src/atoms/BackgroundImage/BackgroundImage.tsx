@@ -5,7 +5,7 @@ import { BackgroundImageStyled } from './BackgroundImage.styles';
 
 export type BackgroundImageProps = {
   children: ReactNode;
-  image: 'login' | 'register';
+  image: 'login' | 'login_or_register' | 'register';
 };
 
 const BackgroundImage = (props: BackgroundImageProps) => {

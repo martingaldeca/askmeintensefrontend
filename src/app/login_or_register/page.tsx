@@ -4,10 +4,8 @@ import { BackgroundImage } from '@/atoms';
 
 export default function LoginOrRegisterPage() {
   return (
-    <div>
-      <BackgroundImage image="login">
-        <LoginOrRegisterLandingContainer />
-      </BackgroundImage>
-    </div>
+    <BackgroundImage image="login_or_register">
+      <LoginOrRegisterLandingContainer />
+    </BackgroundImage>
   );
 }
