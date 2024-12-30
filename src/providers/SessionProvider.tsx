@@ -3,7 +3,7 @@
 import { ReactNode, useEffect, useState, createContext, useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import { PATHS } from '@/constants/paths';
-import { TokenObtainPair } from '@/app/lib/client';
+import { OpenAPI, TokenObtainPair } from '@/app/lib/client';
 
 interface SessionProviderProps {
   children: ReactNode;
@@ -33,8 +33,10 @@ export default function SessionProvider({ children }: SessionProviderProps) {
     setUserState(user);
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
+      OpenAPI.TOKEN = user.access;
     } else {
       localStorage.removeItem('user');
+      OpenAPI.TOKEN = undefined;
     }
   };
 
