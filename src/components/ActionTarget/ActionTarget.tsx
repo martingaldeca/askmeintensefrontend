@@ -22,7 +22,7 @@ const ActionTarget = (props: ActionTargetProps) => {
       size={props.size}
       onClick={handleClick}
     >
-      <CTAButton text="¡A preguntar!" onClick={handleClick} />
+      <CTAButton text="¡A preguntar!" primaryButton={false} type="insideAction" onClick={handleClick} />
     </ActionTargetStyled>
   );
 };

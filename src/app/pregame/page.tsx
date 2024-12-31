@@ -13,7 +13,7 @@ import { useCategories, useLevels } from '@/hooks';
 import { PATHS } from '@/constants/paths';
 import { useRouter } from 'next/navigation';
 
-export default function Pregame() {
+export default function PregamePage() {
   const dispatch = useDispatch();
   const router = useRouter();
   const { categories } = useCategories();
@@ -62,9 +62,9 @@ export default function Pregame() {
       <Container sx={{ mt: theme.sizes.bigMargin }}>
         <CTAButton
           text="¡Empezar!"
-          type="standalone"
           onClick={handleStart}
           disabled={!selectedCategory?.uuid || !selectedLevel?.uuid}
+          disabledText="Selecciona Categoría y Nivel"
         />
       </Container>
     </div>

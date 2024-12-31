@@ -1,11 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Navbar } from '@/components';
 import StoreProvider from '@/providers/StoreProvider';
 import { RedirectProvider } from '@/providers/RedirectProvider';
 import ToastProvider from '@/providers/ToastProvider';
 import BackProvider from '@/providers/BackProvider';
 import ScreenOrientationProvider from '@/providers/ScreenOrientationProvider';
+import SessionProvider from '@/providers/SessionProvider';
+import { GeneralBottomNavigation } from '@/components';
 
 export const metadata: Metadata = {
   title: 'AskMeIntense',
@@ -17,16 +18,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="relative">
         <ScreenOrientationProvider>
-          <StoreProvider>
-            <RedirectProvider>
-              <BackProvider>
-                <ToastProvider>
-                  <Navbar />
-                  {children}
-                </ToastProvider>
-              </BackProvider>
-            </RedirectProvider>
-          </StoreProvider>
+          <SessionProvider>
+            <StoreProvider>
+              <RedirectProvider>
+                <BackProvider>
+                  <ToastProvider>
+                    {children}
+                    <GeneralBottomNavigation />
+                  </ToastProvider>
+                </BackProvider>
+              </RedirectProvider>
+            </StoreProvider>
+          </SessionProvider>
         </ScreenOrientationProvider>
       </body>
     </html>

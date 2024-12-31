@@ -38,7 +38,7 @@ export default function QuestionDetailPage() {
         <QuestionDetail category={selectedCategory} level={selectedLevel} question={selectedQuestion.instance} />
       )}
       <Box mt={2}>
-        <CTAButton text="Siguiente" type="standalone" onClick={handleNext} />
+        <CTAButton text="Siguiente" onClick={handleNext} />
       </Box>
     </div>
   );

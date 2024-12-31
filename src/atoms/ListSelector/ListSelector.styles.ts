@@ -12,9 +12,9 @@ export const ListSelectorStyled = styled('div')({
 
 export const ListSelectorButtonStyled = styled(Button)({
   width: '80%',
-  backgroundColor: theme.colors.mainButtonColor,
-  color: theme.colors.mainButtonTextColor,
-  border: `1px solid ${theme.colors.mainButtonTextColor}`,
+  backgroundColor: theme.colors.listSelectorColor,
+  color: theme.colors.listSelectorTextColor,
+  border: `1px solid ${theme.colors.listSelectorBorderColor}`,
   '&:hover': {
     backgroundColor: theme.colors.hoverColor,
   },
