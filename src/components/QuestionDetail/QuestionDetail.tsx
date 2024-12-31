@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Box, Typography, TextField, IconButton, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import React from 'react';
+import { Box, Typography, IconButton } from '@mui/material';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import { CTAButton } from '@/atoms';
+import { CTAButton, TextAccordion } from '@/atoms';
 import { Category, Level, SimpleQuestion } from '@/app/lib/client';
 import { CategoryLevelInfo } from '@/components';
 
@@ -16,8 +15,6 @@ export type QuestionDetailProps = {
 };
 
 export default function QuestionDetail(props: QuestionDetailProps) {
-  const [storeAnswer, setStoreAnswer] = useState('');
-
   const handleSuggestion = () => {
     console.log('TODO suggestion');
   };
@@ -49,37 +46,7 @@ export default function QuestionDetail(props: QuestionDetailProps) {
         </Box>
       </Box>
 
-      <Accordion sx={{ mb: 2 }}>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography variant="body1">Ejemplo</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <TextField
-            variant="filled"
-            fullWidth
-            multiline
-            value={props.question?.example || ''}
-            slotProps={{
-              input: {
-                readOnly: true,
-              },
-            }}
-          />
-        </AccordionDetails>
-      </Accordion>
-
-      <Box sx={{ mb: 2 }}>
-        <TextField
-          label="Tu respuesta"
-          variant="outlined"
-          fullWidth
-          multiline
-          rows={3}
-          value={storeAnswer}
-          onChange={e => setStoreAnswer(e.target.value)}
-        />
-      </Box>
-
+      <TextAccordion label="Ejemplo" text={props.question?.example} />
       <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
         <IconButton onClick={handleLike} color="primary">
           <ThumbUpIcon />
