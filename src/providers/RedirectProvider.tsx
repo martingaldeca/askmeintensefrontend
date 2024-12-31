@@ -27,7 +27,7 @@ export const RedirectProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
 
     return;
-  }, [router, pathname]);
+  }, [user, router, pathname]);
 
   return <>{children}</>;
 };
