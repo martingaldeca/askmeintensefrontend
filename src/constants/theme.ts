@@ -25,6 +25,8 @@ export const theme = {
     oddRowColor: '#f2f2f2',
     evenRowColor: '#ffffff',
     hoverColor: '#bababa',
+
+    unselectedColor: 'rgba(186,186,186,0.5)',
   },
   sizes: {
     inputMinWith: '300px',
@@ -41,6 +43,7 @@ export const theme = {
     verticalSizeFillSmall: '63vh',
     verticalSizeFillMedium: '40vh',
     navBarHeight: '55px',
+    maxWidth: '600px',
     toast: {
       toastWidth: '90%',
       toastFontSize: '16px',

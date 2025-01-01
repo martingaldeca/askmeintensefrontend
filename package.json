@@ -12,7 +12,6 @@
     "regenerateClient:local": "openapi -i http://localhost:3141/api/schema/ -o src/app/lib/client",
     "generateKeyStore": "keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000",
     "capAndroid": "npx cap add android",
-    "updateApi": "",
     "capSync": "npx cap sync",
     "buildAndroidApk": "npx cap build android --keystorepath my-release-key.keystore --keystorepass 123456 --keystorealias alias_name --keystorealiaspass 123456 --androidreleasetype APK",
     "updateIconApk": "cordova-res android --skip-config --copy",

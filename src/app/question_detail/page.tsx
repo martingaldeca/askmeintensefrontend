@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useCallback } from 'react';
 import { Box } from '@mui/material';
-import { CTAButton } from '@/atoms';
+import { BackgroundImage, CTAButton } from '@/atoms';
 import { QuestionDetail } from '@/components';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
@@ -33,13 +33,13 @@ export default function QuestionDetailPage() {
   };
 
   return (
-    <div>
+    <BackgroundImage image="question_detail">
       {selectedCategory && selectedLevel && selectedQuestion && selectedQuestion.instance && (
         <QuestionDetail category={selectedCategory} level={selectedLevel} question={selectedQuestion.instance} />
       )}
-      <Box mt={2}>
+      <Box>
         <CTAButton text="Siguiente" onClick={handleNext} />
       </Box>
-    </div>
+    </BackgroundImage>
   );
 }
