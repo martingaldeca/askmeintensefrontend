@@ -12,6 +12,7 @@ import { RootState } from '@/store/store';
 import { useCategories, useLevels } from '@/hooks';
 import { PATHS } from '@/constants/paths';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 export default function PregamePage() {
   const dispatch = useDispatch();
@@ -27,6 +28,9 @@ export default function PregamePage() {
       })
       .catch(error => {
         console.log(error);
+        toast.error('Error during request', {
+          toastId: 'api-error',
+        });
       });
   }, [dispatch]);
 
@@ -37,6 +41,9 @@ export default function PregamePage() {
       })
       .catch(error => {
         console.log(error);
+        toast.error('Error during request', {
+          toastId: 'api-error',
+        });
       });
   }, [dispatch]);
 

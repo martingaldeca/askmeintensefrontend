@@ -11,4 +11,5 @@ export const CustomChipStyled = styled(Chip)<CustomChipStyledProps>(({ primary =
   color: primary ? theme.colors.textOnMainColor : theme.colors.textOnSecondaryColor,
   borderRadius: theme.cardBorderRadius,
   borderColor: primary ? theme.colors.textOnMainColor : theme.colors.textOnSecondaryColor,
+  margin: 'auto',
 }));

@@ -1,12 +1,13 @@
 'use client';
 import React, { useEffect, useCallback } from 'react';
 import { Box } from '@mui/material';
-import { CTAButton } from '@/atoms';
+import { BackgroundImage, CTAButton } from '@/atoms';
 import { QuestionDetail } from '@/components';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { QuestionsService } from '@/app/lib/client';
 import { fetchSelectedQuestion } from '@/store/slices/selectedQuestionSlice';
+import { toast } from 'react-toastify';
 
 export default function QuestionDetailPage() {
   const dispatch = useDispatch();
@@ -20,7 +21,10 @@ export default function QuestionDetailPage() {
         dispatch(fetchSelectedQuestion(data));
       })
       .catch(error => {
-        console.error('Error al obtener la pregunta:', error);
+        console.error('Error during request:', error);
+        toast.error('Error during request', {
+          toastId: 'api-error',
+        });
       });
   }, [selectedCategory, selectedLevel, dispatch]);
 
@@ -33,13 +37,13 @@ export default function QuestionDetailPage() {
   };
 
   return (
-    <div>
+    <BackgroundImage image="question_detail">
       {selectedCategory && selectedLevel && selectedQuestion && selectedQuestion.instance && (
         <QuestionDetail category={selectedCategory} level={selectedLevel} question={selectedQuestion.instance} />
       )}
-      <Box mt={2}>
+      <Box>
         <CTAButton text="Siguiente" onClick={handleNext} />
       </Box>
-    </div>
+    </BackgroundImage>
   );
 }

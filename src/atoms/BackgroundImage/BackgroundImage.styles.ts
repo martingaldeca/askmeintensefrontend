@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import { theme } from '@/constants/theme';
 
 type BackgroundImageStyledProps = {
-  image: 'login' | 'login_or_register' | 'register';
+  image: 'login' | 'login_or_register' | 'register' | 'question_detail';
 };
 
 export const BackgroundImageStyled = styled('div', {

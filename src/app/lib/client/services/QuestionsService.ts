@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { AddOrRemoveInputReactionRequest } from '../models/AddOrRemoveInputReactionRequest';
+import type { AddOrRemoveReaction } from '../models/AddOrRemoveReaction';
 import type { PaginatedCategoryList } from '../models/PaginatedCategoryList';
 import type { PaginatedLevelList } from '../models/PaginatedLevelList';
 import type { PaginatedQuestionList } from '../models/PaginatedQuestionList';
@@ -65,6 +67,46 @@ export class QuestionsService {
         limit: limit,
         offset: offset,
       },
+    });
+  }
+  /**
+   * @param uuid
+   * @param requestBody
+   * @returns AddOrRemoveReaction
+   * @throws ApiError
+   */
+  public static questionsReactCreate(
+    uuid: string,
+    requestBody: AddOrRemoveInputReactionRequest,
+  ): CancelablePromise<AddOrRemoveReaction> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/api/questions/{uuid}/react/',
+      path: {
+        uuid: uuid,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
+    });
+  }
+  /**
+   * @param uuid
+   * @param requestBody
+   * @returns AddOrRemoveReaction
+   * @throws ApiError
+   */
+  public static questionsReactRemoveCreate(
+    uuid: string,
+    requestBody: AddOrRemoveInputReactionRequest,
+  ): CancelablePromise<AddOrRemoveReaction> {
+    return __request(OpenAPI, {
+      method: 'POST',
+      url: '/api/questions/{uuid}/react/remove/',
+      path: {
+        uuid: uuid,
+      },
+      body: requestBody,
+      mediaType: 'application/json',
     });
   }
   /**

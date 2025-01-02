@@ -7,5 +7,8 @@ export type Register = {
    * User's email.
    */
   email: string;
+  /**
+   * Password of the user
+   */
   password: string;
 };

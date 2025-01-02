@@ -6,6 +6,7 @@ import CategoryLevelInfo from './CategoryLevelInfo/CategoryLevelInfo';
 import LoginOrRegisterLandingContainer from './LoginLandingContainer/LoginLandingContainer';
 import LoginContainer from './LoginContainer/LoginContainer';
 import GeneralBottomNavigation from './GeneralBottomNavigation/GeneralBottomNavigation';
+import QuestionActions from './QuestionActions/QuestionActions';
 
 export {
   LandingPage,
@@ -16,4 +17,5 @@ export {
   LoginOrRegisterLandingContainer,
   LoginContainer,
   GeneralBottomNavigation,
+  QuestionActions,
 };
