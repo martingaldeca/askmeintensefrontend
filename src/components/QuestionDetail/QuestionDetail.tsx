@@ -23,7 +23,8 @@ export default function QuestionDetail(props: QuestionDetailProps) {
       <QuestionContainer question={props.question?.question} />
       <TextAccordion label="Ejemplo" text={props.question?.example} />
       <QuestionActions
-        disable={disabled}
+        questionUuid={props.question?.uuid}
+        disabled={disabled}
         liked={props.question?.liked}
         disliked={props.question?.disliked}
         favorite={props.question?.favorite}

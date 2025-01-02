@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { QuestionsService } from '@/app/lib/client';
 import { fetchSelectedQuestion } from '@/store/slices/selectedQuestionSlice';
+import { toast } from 'react-toastify';
 
 export default function QuestionDetailPage() {
   const dispatch = useDispatch();
@@ -20,7 +21,10 @@ export default function QuestionDetailPage() {
         dispatch(fetchSelectedQuestion(data));
       })
       .catch(error => {
-        console.error('Error al obtener la pregunta:', error);
+        console.error('Error during request:', error);
+        toast.error('Error during request', {
+          toastId: 'api-error',
+        });
       });
   }, [selectedCategory, selectedLevel, dispatch]);
 

@@ -7,6 +7,8 @@ export { CancelablePromise, CancelError } from './core/CancelablePromise';
 export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
+export type { AddOrRemoveInputReactionRequest } from './models/AddOrRemoveInputReactionRequest';
+export type { AddOrRemoveReaction } from './models/AddOrRemoveReaction';
 export type { Category } from './models/Category';
 export type { GoogleSocialAuth } from './models/GoogleSocialAuth';
 export type { Level } from './models/Level';
@@ -15,6 +17,7 @@ export type { PaginatedCategoryList } from './models/PaginatedCategoryList';
 export type { PaginatedLevelList } from './models/PaginatedLevelList';
 export type { PaginatedQuestionList } from './models/PaginatedQuestionList';
 export type { Question } from './models/Question';
+export { ReactionEnum } from './models/ReactionEnum';
 export type { Register } from './models/Register';
 export type { SimpleQuestion } from './models/SimpleQuestion';
 export { StatusEnum } from './models/StatusEnum';

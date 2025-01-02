@@ -3,6 +3,7 @@
 import React, { useEffect, createContext, ReactNode } from 'react';
 import { ScreenOrientation } from '@capacitor/screen-orientation';
 import { Capacitor } from '@capacitor/core';
+import { toast } from 'react-toastify';
 
 const ScreenOrientationContext = createContext(null);
 
@@ -32,7 +33,12 @@ const ScreenOrientationProvider: React.FC<ScreenOrientationProviderProps> = ({ c
       if (Capacitor.getPlatform() !== 'web') {
         ScreenOrientation.unlock()
           .then(() => console.log('Orientation unlocked'))
-          .catch(err => console.error('Error unlocking orientation:', err));
+          .catch(error => {
+            console.error('Error unlocking orientation:', error);
+            toast.error('Error in screen orientation', {
+              toastId: 'internal-error',
+            });
+          });
       }
     };
   }, []);

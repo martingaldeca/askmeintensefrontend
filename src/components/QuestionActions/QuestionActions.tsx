@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import StarIcon from '@mui/icons-material/Star';
@@ -8,72 +8,128 @@ import { CTAButton } from '@/atoms';
 import { QuestionActionsStyled } from '@/components/QuestionActions/QuestionActions.styles';
 import CustomIconButton from '../../atoms/CustomIconButton/CustomIconButton';
 import { theme } from '@/constants/theme';
+import { QuestionsService, ReactionEnum } from '@/app/lib/client';
+import { fetchSelectedQuestion } from '@/store/slices/selectedQuestionSlice';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 export type QuestionActionsProps = {
-  disable: boolean;
+  disabled: boolean;
+  questionUuid: string;
   liked: boolean | null;
   disliked: boolean | null;
   favorite: boolean | null;
 };
 
-const QuestionActions = ({ disable, liked = false, disliked = false, favorite = false }: QuestionActionsProps) => {
-  const [isLiked, setIsLiked] = useState(liked);
-  const [isDisliked, setIsDisliked] = useState(disliked);
-  const [isFavorite, setIsFavorite] = useState(favorite);
-
+const QuestionActions = (props: QuestionActionsProps) => {
+  const dispatch = useDispatch();
   const handleSuggestion = () => {
-    console.log('TODO suggestion');
+    toast.error('Not available yet!', {
+      toastId: 'not-available',
+    });
   };
 
   const handleLike = () => {
-    if (disable) return;
-    setIsLiked(prev => {
-      const newValue = !prev;
-      if (newValue) {
-        setIsDisliked(false);
-      }
-      return newValue;
-    });
+    if (props.disabled) return;
+    if (!props.liked) {
+      QuestionsService.questionsReactCreate(props.questionUuid, { reaction: ReactionEnum.LIKE })
+        .then(data => {
+          dispatch(fetchSelectedQuestion(data));
+        })
+        .catch(error => {
+          console.error('Error during request:', error);
+          toast.error('Error during request', {
+            toastId: 'api-error',
+          });
+        });
+    } else {
+      QuestionsService.questionsReactRemoveCreate(props.questionUuid, { reaction: ReactionEnum.LIKE })
+        .then(data => {
+          dispatch(fetchSelectedQuestion(data));
+        })
+        .catch(error => {
+          console.error('Error during request:', error);
+          toast.error('Error during request', {
+            toastId: 'api-error',
+          });
+        });
+    }
   };
 
-  const handleUnlike = () => {
-    if (disable) return;
-    setIsDisliked(prev => {
-      const newValue = !prev;
-      if (newValue) {
-        setIsLiked(false);
-      }
-      return newValue;
-    });
+  const handleDislike = () => {
+    if (props.disabled) return;
+    if (!props.disliked) {
+      QuestionsService.questionsReactCreate(props.questionUuid, { reaction: ReactionEnum.DISLIKE })
+        .then(data => {
+          dispatch(fetchSelectedQuestion(data));
+        })
+        .catch(error => {
+          console.error('Error during request:', error);
+          toast.error('Error during request', {
+            toastId: 'api-error',
+          });
+        });
+    } else {
+      QuestionsService.questionsReactRemoveCreate(props.questionUuid, { reaction: ReactionEnum.DISLIKE })
+        .then(data => {
+          dispatch(fetchSelectedQuestion(data));
+        })
+        .catch(error => {
+          console.error('Error during request:', error);
+          toast.error('Error during request', {
+            toastId: 'api-error',
+          });
+        });
+    }
   };
 
   const handleAddFavorite = () => {
-    if (disable) return;
-    setIsFavorite(prev => !prev);
+    if (props.disabled) return;
+    if (!props.favorite) {
+      QuestionsService.questionsReactCreate(props.questionUuid, { reaction: ReactionEnum.FAVORITE })
+        .then(data => {
+          dispatch(fetchSelectedQuestion(data));
+        })
+        .catch(error => {
+          console.error('Error during request:', error);
+          toast.error('Error during request', {
+            toastId: 'api-error',
+          });
+        });
+    } else {
+      QuestionsService.questionsReactRemoveCreate(props.questionUuid, { reaction: ReactionEnum.FAVORITE })
+        .then(data => {
+          dispatch(fetchSelectedQuestion(data));
+        })
+        .catch(error => {
+          console.error('Error during request:', error);
+          toast.error('Error during request', {});
+        });
+    }
   };
 
   return (
     <QuestionActionsStyled>
       <CustomIconButton
-        disabled={disable}
+        disabled={props.disabled}
         icon={ThumbUpIcon}
         handler={handleLike}
-        iconColor={isLiked ? theme.colors.mainColor : theme.colors.unselectedColor}
+        iconColor={props.liked ? theme.colors.mainColor : theme.colors.unselectedColor}
       />
       <CustomIconButton
-        disabled={disable}
+        disabled={props.disabled}
         icon={ThumbDownIcon}
-        handler={handleUnlike}
-        iconColor={isDisliked ? '' : theme.colors.unselectedColor}
-        color={isDisliked ? 'error' : undefined}
+        handler={handleDislike}
+        iconColor={props.disliked ? '' : theme.colors.unselectedColor}
+        color={props.disliked ? 'error' : undefined}
       />
       <CustomIconButton
-        disabled={disable}
+        disabled={props.disabled}
         icon={StarIcon}
         handler={handleAddFavorite}
-        iconColor={isFavorite ? theme.colors.secondaryColor : theme.colors.unselectedColor}
+        iconColor={props.favorite ? theme.colors.secondaryColor : theme.colors.unselectedColor}
       />
-      <CTAButton disabled={disable} text="Sugerencia de cambio" onClick={handleSuggestion} />
+      <CTAButton disabled={props.disabled} text="Sugerencia de cambio" onClick={handleSuggestion} />
     </QuestionActionsStyled>
   );
 };
