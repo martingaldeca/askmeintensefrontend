@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Level = {
-  uuid: string;
+  readonly uuid: string;
   /**
    * Level name
    */

@@ -1,9 +1,13 @@
+import { createTheme } from '@mui/material/styles';
+
 export const theme = {
   colors: {
     mainColor: '#1976d2',
     borderColor: '#07568a',
     mainColorShadow: '#50afef',
     textOnMainColor: '#ffffff',
+
+    errorColor: '#e04747',
 
     secondaryColor: '#e4dc43',
     secondaryBorderColor: '#8a3907',
@@ -31,6 +35,7 @@ export const theme = {
   sizes: {
     inputMinWith: '300px',
     standaloneButtonHeight: '40px',
+    standaloneSmallButtonHeight: '30px',
     smallMargin: '5px',
     mediumMargin: '15px',
     bigMargin: '30px',
@@ -51,3 +56,24 @@ export const theme = {
   },
   cardBorderRadius: '16px',
 };
+
+const globalTheme = createTheme({
+  palette: {
+    primary: {
+      light: theme.colors.borderColor,
+      main: theme.colors.mainColor,
+      dark: theme.colors.mainColorShadow,
+      contrastText: theme.colors.textOnMainColor,
+    },
+    secondary: {
+      light: theme.colors.secondaryBorderColor,
+      main: theme.colors.secondaryColor,
+      dark: theme.colors.secondaryColorShadow,
+      contrastText: theme.colors.textOnSecondaryColor,
+    },
+    error: {
+      main: theme.colors.errorColor,
+    },
+  },
+});
+export default globalTheme;

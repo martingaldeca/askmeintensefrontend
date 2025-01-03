@@ -4,7 +4,7 @@
 /* eslint-disable */
 import type { StatusEnum } from './StatusEnum';
 export type SimpleQuestion = {
-  uuid: string;
+  readonly uuid: string;
   /**
    * Question text, this is the main question that will appear to the asker
    */

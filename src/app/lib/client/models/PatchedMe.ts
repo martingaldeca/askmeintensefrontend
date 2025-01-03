@@ -3,12 +3,12 @@
 /* tslint:disable */
 /* eslint-disable */
 import type { AvatarEnum } from './AvatarEnum';
-export type Me = {
-  readonly uuid: string;
+export type PatchedMe = {
+  readonly uuid?: string;
   /**
    * User's email.
    */
-  email: string;
+  email?: string;
   first_name?: string;
   last_name?: string;
   /**

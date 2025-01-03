@@ -3,7 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Category = {
-  uuid: string;
+  readonly uuid: string;
   /**
    * Category name
    */

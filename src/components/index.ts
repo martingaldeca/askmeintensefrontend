@@ -7,6 +7,8 @@ import LoginOrRegisterLandingContainer from './LoginLandingContainer/LoginLandin
 import LoginContainer from './LoginContainer/LoginContainer';
 import GeneralBottomNavigation from './GeneralBottomNavigation/GeneralBottomNavigation';
 import QuestionActions from './QuestionActions/QuestionActions';
+import ProfileHeader from './ProfileHeader/ProfileHeader';
+import ProfileOptions from './ProfileOptions/ProfileOptions';
 
 export {
   LandingPage,
@@ -18,4 +20,6 @@ export {
   LoginContainer,
   GeneralBottomNavigation,
   QuestionActions,
+  ProfileHeader,
+  ProfileOptions,
 };

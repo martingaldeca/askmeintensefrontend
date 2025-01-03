@@ -10,6 +10,8 @@ export type CTAButtonProps = {
   withMargin?: boolean;
   submit?: boolean;
   disabledText?: string;
+  centered?: boolean;
+  size?: 'small' | 'medium' | 'large';
 };
 
 const CTAButton = (props: CTAButtonProps) => {
@@ -23,6 +25,8 @@ const CTAButton = (props: CTAButtonProps) => {
       type={props.submit ? 'submit' : 'button'}
       primaryButton={props.primaryButton}
       withMargin={props.withMargin}
+      centered={props.centered}
+      size={props.size}
     >
       {buttonText}
     </CTAButtonStyled>
