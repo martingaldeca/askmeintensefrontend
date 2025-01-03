@@ -13,6 +13,7 @@ import { useCategories, useLevels } from '@/hooks';
 import { PATHS } from '@/constants/paths';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+import { useSession } from '@/providers/SessionProvider';
 
 export default function PregamePage() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ export default function PregamePage() {
   const { categories } = useCategories();
   const { levels } = useLevels();
   const { selectedCategory, selectedLevel } = useSelector((state: RootState) => state.gameOptions);
+  const { logout } = useSession();
 
   useEffect(() => {
     QuestionsService.categoriesList()
@@ -28,11 +30,12 @@ export default function PregamePage() {
       })
       .catch(error => {
         console.log(error);
+        logout();
         toast.error('Error during request', {
           toastId: 'api-error',
         });
       });
-  }, [dispatch]);
+  }, [logout, dispatch]);
 
   useEffect(() => {
     QuestionsService.levelsList()
@@ -41,11 +44,12 @@ export default function PregamePage() {
       })
       .catch(error => {
         console.log(error);
+        logout();
         toast.error('Error during request', {
           toastId: 'api-error',
         });
       });
-  }, [dispatch]);
+  }, [logout, dispatch]);
 
   function handleStart() {
     if (!selectedCategory?.uuid || !selectedLevel?.uuid) return;

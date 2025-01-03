@@ -12,6 +12,7 @@ import { QuestionsService, ReactionEnum } from '@/app/lib/client';
 import { fetchSelectedQuestion } from '@/store/slices/selectedQuestionSlice';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { useSession } from '@/providers/SessionProvider';
 
 export type QuestionActionsProps = {
   disabled: boolean;
@@ -23,6 +24,7 @@ export type QuestionActionsProps = {
 
 const QuestionActions = (props: QuestionActionsProps) => {
   const dispatch = useDispatch();
+  const { logout } = useSession();
   const handleSuggestion = () => {
     toast.error('Not available yet!', {
       toastId: 'not-available',
@@ -38,6 +40,7 @@ const QuestionActions = (props: QuestionActionsProps) => {
         })
         .catch(error => {
           console.error('Error during request:', error);
+          logout();
           toast.error('Error during request', {
             toastId: 'api-error',
           });
@@ -49,6 +52,7 @@ const QuestionActions = (props: QuestionActionsProps) => {
         })
         .catch(error => {
           console.error('Error during request:', error);
+          logout();
           toast.error('Error during request', {
             toastId: 'api-error',
           });
@@ -65,6 +69,7 @@ const QuestionActions = (props: QuestionActionsProps) => {
         })
         .catch(error => {
           console.error('Error during request:', error);
+          logout();
           toast.error('Error during request', {
             toastId: 'api-error',
           });
@@ -76,6 +81,7 @@ const QuestionActions = (props: QuestionActionsProps) => {
         })
         .catch(error => {
           console.error('Error during request:', error);
+          logout();
           toast.error('Error during request', {
             toastId: 'api-error',
           });
@@ -92,6 +98,7 @@ const QuestionActions = (props: QuestionActionsProps) => {
         })
         .catch(error => {
           console.error('Error during request:', error);
+          logout();
           toast.error('Error during request', {
             toastId: 'api-error',
           });
@@ -103,7 +110,8 @@ const QuestionActions = (props: QuestionActionsProps) => {
         })
         .catch(error => {
           console.error('Error during request:', error);
-          toast.error('Error during request', {});
+          logout();
+          toast.error('Error during request', { toastId: 'api-error' });
         });
     }
   };

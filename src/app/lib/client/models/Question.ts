@@ -6,7 +6,7 @@ import type { Category } from './Category';
 import type { Level } from './Level';
 import type { StatusEnum } from './StatusEnum';
 export type Question = {
-  uuid: string;
+  readonly uuid: string;
   /**
    * Question text, this is the main question that will appear to the asker
    */

@@ -6,6 +6,7 @@ import BackgroundImage from './BackgroundImage/BackgroundImage';
 import TextAccordion from './TextAccordion/TextAccordion';
 import QuestionContainer from './QuestionContainer/QuestionContainer';
 import CustomIconButton from './CustomIconButton/CustomIconButton';
+import ProfileAvatar from './ProfileAvatar/ProfileAvatar';
 
 export {
   CTAButton,
@@ -16,4 +17,5 @@ export {
   TextAccordion,
   QuestionContainer,
   CustomIconButton,
+  ProfileAvatar,
 };

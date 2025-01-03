@@ -8,11 +8,13 @@ import { RootState } from '@/store/store';
 import { QuestionsService } from '@/app/lib/client';
 import { fetchSelectedQuestion } from '@/store/slices/selectedQuestionSlice';
 import { toast } from 'react-toastify';
+import { useSession } from '@/providers/SessionProvider';
 
 export default function QuestionDetailPage() {
   const dispatch = useDispatch();
   const { selectedCategory, selectedLevel } = useSelector((state: RootState) => state.gameOptions);
   const selectedQuestion = useSelector((state: RootState) => state.selectedQuestion);
+  const { logout } = useSession();
 
   const loadQuestion = useCallback(() => {
     if (!selectedCategory?.uuid || !selectedLevel?.uuid) return;
@@ -22,11 +24,12 @@ export default function QuestionDetailPage() {
       })
       .catch(error => {
         console.error('Error during request:', error);
+        logout();
         toast.error('Error during request', {
           toastId: 'api-error',
         });
       });
-  }, [selectedCategory, selectedLevel, dispatch]);
+  }, [selectedCategory, selectedLevel, dispatch, logout]);
 
   useEffect(() => {
     loadQuestion();

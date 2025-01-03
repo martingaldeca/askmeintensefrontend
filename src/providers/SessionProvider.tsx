@@ -31,24 +31,29 @@ export default function SessionProvider({ children }: SessionProviderProps) {
 
   const setUser = (user: TokenObtainPair | null) => {
     setUserState(user);
-    if (user) {
-      localStorage.setItem('user', JSON.stringify(user));
-      OpenAPI.TOKEN = user.access;
-    } else {
-      localStorage.removeItem('user');
-      OpenAPI.TOKEN = undefined;
+    if (typeof window !== 'undefined') {
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+        OpenAPI.TOKEN = user.access;
+      } else {
+        localStorage.removeItem('user');
+        OpenAPI.TOKEN = undefined;
+      }
     }
   };
 
   const logout = () => {
     setUser(null);
-    router.push(PATHS.LOGIN_OR_REGISTER);
+    router.push(PATHS.HOME);
   };
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUserState(JSON.parse(storedUser));
+    if (typeof window !== 'undefined') {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        const parsedUser = JSON.parse(storedUser) as TokenObtainPair;
+        setUser(parsedUser);
+      }
     }
   }, []);
 
