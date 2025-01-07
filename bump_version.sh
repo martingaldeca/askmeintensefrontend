@@ -39,5 +39,7 @@ NEW_VERSION_CODE=$((VERSION_CODE + 1))
 
 sed -i "s/versionName \".*\"/versionName \"$NEW_VERSION_NAME\"/" android/app/build.gradle
 sed -i "s/versionCode [0-9]*/versionCode $NEW_VERSION_CODE/" android/app/build.gradle
+sed -i "s/VERSION: '.*'/VERSION: '$NEW_VERSION_NAME'/" src/app/lib/client/core/OpenAPI.ts
+
 
 echo "Updated versionName to $NEW_VERSION_NAME and versionCode to $NEW_VERSION_CODE."

@@ -5,8 +5,8 @@ const config: CapacitorConfig = {
   appName: 'AskMeIntense',
   webDir: 'out',
   android: {
-    "allowMixedContent": true
-  }
+    allowMixedContent: true,
+  },
 };
 
 export default config;

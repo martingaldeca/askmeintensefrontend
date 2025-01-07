@@ -30,7 +30,7 @@
     "generateAab:minor": "rm -f AskMeIntense*.aab AskMeIntense*.apk && npm run build && npm run capSync && npm run bumpVersion:minor &&npm run buildAndroidAab && npm run updateIconApp && npm run signAab && npm run renameAab",
     "generateAab:major": "rm -f AskMeIntense*.aab AskMeIntense*.apk && npm run build && npm run capSync && npm run bumpVersion:major &&npm run buildAndroidAab && npm run updateIconApp && npm run signAab && npm run renameAab",
     "androidEditor": "npx cap open android",
-    "preCommit": "npm run format:fix && npm run lint"
+    "preCommit": "npm run format:fix && npm run lint && npm run bumpVersion:patch"
   },
   "pre-commit": [
     "preCommit"

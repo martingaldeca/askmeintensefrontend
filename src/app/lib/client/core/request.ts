@@ -178,6 +178,7 @@ export const getHeaders = async (config: OpenAPIConfig, options: ApiRequestOptio
       headers['Content-Type'] = 'application/json';
     }
   }
+  headers['Appversion'] = config.VERSION;
 
   return new Headers(headers);
 };
