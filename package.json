@@ -38,6 +38,7 @@
   "dependencies": {
     "@capacitor/android": "^6.2.0",
     "@capacitor/app": "^6.0.2",
+    "@capacitor/browser": "^6.0.4",
     "@capacitor/core": "^6.2.0",
     "@capacitor/screen-orientation": "^6.0.3",
     "@emotion/cache": "^11.14.0",
