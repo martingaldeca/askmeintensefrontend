@@ -5,9 +5,11 @@
 import { ApiError } from './ApiError';
 import type { ApiRequestOptions } from './ApiRequestOptions';
 import type { ApiResult } from './ApiResult';
-import { CancelablePromise } from './CancelablePromise';
 import type { OnCancel } from './CancelablePromise';
-import type { OpenAPIConfig } from './OpenAPI';
+import { CancelablePromise } from './CancelablePromise';
+import { OpenAPI, OpenAPIConfig } from './OpenAPI';
+import { App } from '@capacitor/app';
+import { Browser } from '@capacitor/browser';
 
 export const isDefined = <T>(value: T | null | undefined): value is Exclude<T, null | undefined> => {
   return value !== undefined && value !== null;
@@ -178,6 +180,7 @@ export const getHeaders = async (config: OpenAPIConfig, options: ApiRequestOptio
       headers['Content-Type'] = 'application/json';
     }
   }
+  headers['Appversion'] = config.VERSION;
 
   return new Headers(headers);
 };
@@ -258,11 +261,21 @@ export const catchErrorCodes = (options: ApiRequestOptions, result: ApiResult): 
     401: 'Unauthorized',
     403: 'Forbidden',
     404: 'Not Found',
+    426: 'Upgrade Required',
     500: 'Internal Server Error',
     502: 'Bad Gateway',
     503: 'Service Unavailable',
     ...options.errors,
   };
+
+  if (result.status === 426) {
+    const versionRequired = result.body.upgrade;
+    Browser.open({ url: OpenAPI.PLAYSTORE_URL }).catch(err => {
+      console.error(`Error opening Play Store: ${err}`);
+    });
+    App.exitApp();
+    return;
+  }
 
   const error = errors[result.status];
   if (error) {

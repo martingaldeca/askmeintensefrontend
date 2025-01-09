@@ -17,11 +17,12 @@ export type OpenAPIConfig = {
   PASSWORD?: string | Resolver<string> | undefined;
   HEADERS?: Headers | Resolver<Headers> | undefined;
   ENCODE_PATH?: ((path: string) => string) | undefined;
+  PLAYSTORE_URL: string;
 };
 
 export const OpenAPI: OpenAPIConfig = {
   BASE: process.env.NEXT_PUBLIC_BACKEND_API_PATH || '',
-  VERSION: '0.0.0',
+  VERSION: '1.1.7',
   WITH_CREDENTIALS: false,
   CREDENTIALS: 'include',
   TOKEN: undefined,
@@ -29,4 +30,5 @@ export const OpenAPI: OpenAPIConfig = {
   PASSWORD: undefined,
   HEADERS: undefined,
   ENCODE_PATH: undefined,
+  PLAYSTORE_URL: 'https://play.google.com/apps/test/com.askmeintense.app/38',
 };

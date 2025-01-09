@@ -2,8 +2,8 @@
 import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import LoginIcon from '@mui/icons-material/Login';
 import { useRouter } from 'next/navigation';
@@ -53,7 +53,7 @@ const GeneralBottomNavigation = () => {
   return (
     <GeneralBottomNavigationStyled>
       <BottomNavigation showLabels value={value} onChange={handleChange}>
-        <BottomNavigationAction label="Jugar" icon={<QuestionMarkIcon />} />
+        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction label="Favoritas" icon={<FavoriteIcon />} />
         <BottomNavigationAction label={loginOrProfileText} icon={loginOrProfileIcon} />
       </BottomNavigation>

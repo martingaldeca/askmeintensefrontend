@@ -41,4 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 android/*
-AskMeIntense.apk
+AskMeIntense*.apk
+AskMeIntense*.aab
+resources/android/icon/*
+resources/android/splash/*
