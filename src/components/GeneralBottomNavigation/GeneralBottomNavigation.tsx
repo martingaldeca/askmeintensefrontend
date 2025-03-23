@@ -34,9 +34,13 @@ const GeneralBottomNavigation = () => {
         router.push(PATHS.HOME);
         break;
       case 1:
-        toast.error('Not yet available. Sorry!', {
-          toastId: 'not-available',
-        });
+        if (user?.access) {
+          router.push(PATHS.FAVOURITES);
+        } else {
+          toast.info('Haz login para ver tus preguntas favoritas', {
+            toastId: 'login-required',
+          });
+        }
         break;
       case 2:
         if (user?.access) {

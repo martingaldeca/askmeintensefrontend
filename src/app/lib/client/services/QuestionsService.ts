@@ -31,6 +31,22 @@ export class QuestionsService {
   /**
    * @param limit Number of results to return per page.
    * @param offset The initial index from which to return the results.
+   * @returns PaginatedQuestionList
+   * @throws ApiError
+   */
+  public static favoriteQuestionsList(limit?: number, offset?: number): CancelablePromise<PaginatedQuestionList> {
+    return __request(OpenAPI, {
+      method: 'GET',
+      url: '/api/favorite_questions/',
+      query: {
+        limit: limit,
+        offset: offset,
+      },
+    });
+  }
+  /**
+   * @param limit Number of results to return per page.
+   * @param offset The initial index from which to return the results.
    * @returns PaginatedLevelList
    * @throws ApiError
    */
