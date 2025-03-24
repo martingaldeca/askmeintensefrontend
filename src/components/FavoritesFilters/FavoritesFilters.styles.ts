@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
-import { theme } from "@/constants/theme";
+import { theme } from '@/constants/theme';
 
 export const FavoritesFiltersStyled = styled(Box)({
   display: 'flex',
