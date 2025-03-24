@@ -13,7 +13,9 @@ export type QuestionContainerProps = {
 const QuestionContainer = (props: QuestionContainerProps) => {
   return (
     <QuestionContainerStyled>
-      <QuestionContainerTitleStyled variant="body1">Pregunta</QuestionContainerTitleStyled>
+      <QuestionContainerTitleStyled variant="body1" color="white">
+        Pregunta
+      </QuestionContainerTitleStyled>
       <QuestionTextContainerStyled>
         <Typography>{props.question || 'No question available'}</Typography>
       </QuestionTextContainerStyled>

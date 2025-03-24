@@ -7,6 +7,7 @@ import TextAccordion from './TextAccordion/TextAccordion';
 import QuestionContainer from './QuestionContainer/QuestionContainer';
 import CustomIconButton from './CustomIconButton/CustomIconButton';
 import ProfileAvatar from './ProfileAvatar/ProfileAvatar';
+import QuestionAccordion from './QuestionAccordion/QuestionAccordion';
 
 export {
   CTAButton,
@@ -18,4 +19,5 @@ export {
   QuestionContainer,
   CustomIconButton,
   ProfileAvatar,
+  QuestionAccordion,
 };

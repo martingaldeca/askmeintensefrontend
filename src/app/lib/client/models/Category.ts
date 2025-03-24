@@ -15,5 +15,5 @@ export type Category = {
   /**
    * Category icon
    */
-  icon: string;
+  icon?: string | null;
 };
