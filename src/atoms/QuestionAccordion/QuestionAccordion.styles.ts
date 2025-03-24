@@ -23,10 +23,9 @@ export const CategoryLevelBoxStyled = styled(Box)(() => ({
 }));
 
 export const ActionContainerStyled = styled(Box)(() => ({
-  display: 'flex',
+  display: 'grid',
+  gridTemplateColumns: '50% 50%',
   alignItems: 'center',
-  justifyContent: 'space-between',
-  flexWrap: 'wrap',
   gap: theme.sizes.smallMargin,
 }));
 

@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Box, CircularProgress } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { QuestionsService, ReactionEnum } from '@/app/lib/client';
 import type { Question } from '@/app/lib/client';
 import { QuestionAccordion } from '@/atoms';
+import { FavoriteQuestionListStyled } from '@/components/FavoriteQuestionList/FavoriteQuestionList.styles';
 
 const FavoriteQuestionList: React.FC = () => {
   const selectedCategory = useSelector((state: RootState) => state.gameOptions.selectedCategory);
@@ -42,7 +43,7 @@ const FavoriteQuestionList: React.FC = () => {
   };
 
   return (
-    <Box mt={2} height="70vh" overflow="auto" pr={1}>
+    <FavoriteQuestionListStyled>
       {loading ? (
         <CircularProgress />
       ) : (
@@ -58,7 +59,7 @@ const FavoriteQuestionList: React.FC = () => {
           />
         ))
       )}
-    </Box>
+    </FavoriteQuestionListStyled>
   );
 };
 

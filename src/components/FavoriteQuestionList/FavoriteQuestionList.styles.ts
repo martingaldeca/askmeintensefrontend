@@ -4,6 +4,6 @@ import { theme } from '@/constants/theme';
 
 export const FavoriteQuestionListStyled = styled(Box)({
   marginTop: theme.sizes.mediumMargin,
-  height: theme.sizes.verticalSizeLarge,
+  height: theme.sizes.verticalSizeMedium,
   overflow: 'auto',
 });

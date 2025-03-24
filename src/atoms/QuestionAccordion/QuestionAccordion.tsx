@@ -73,7 +73,7 @@ const QuestionAccordion: React.FC<QuestionAccordionProps> = ({
             ))}
           </ChipContainerStyled>
 
-          <CTAButton text="Eliminar de favoritos" onClick={handleRemove} error widthOption="medium" />
+          <CTAButton text="Eliminar" onClick={handleRemove} error widthOption="medium" />
         </ActionContainerStyled>
       </AccordionDetails>
     </AccordionStyled>
