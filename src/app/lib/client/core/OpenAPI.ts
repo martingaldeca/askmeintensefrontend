@@ -22,7 +22,7 @@ export type OpenAPIConfig = {
 
 export const OpenAPI: OpenAPIConfig = {
   BASE: process.env.NEXT_PUBLIC_BACKEND_API_PATH || '',
-  VERSION: '2.0.2',
+  VERSION: '2.0.4',
   WITH_CREDENTIALS: false,
   CREDENTIALS: 'include',
   TOKEN: undefined,

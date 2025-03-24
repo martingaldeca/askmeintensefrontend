@@ -15,7 +15,7 @@ const LoginLandingContainer = () => {
   };
   return (
     <LoginLandingContainerStyled>
-      <Typography>¡El juego de preguntas intensitas que te ayudará a conocer mejor a tus amigos!</Typography>
+      <Typography>¡El juego para conocer de verdad a los demás!</Typography>
       <div>
         <CTAButton text="Login" primaryButton={false} withMargin={true} onClick={handleLogin} />
         <CTAButton text="Registrarse" withMargin={true} onClick={handleRegister} />
