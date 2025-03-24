@@ -9,6 +9,8 @@ import GeneralBottomNavigation from './GeneralBottomNavigation/GeneralBottomNavi
 import QuestionActions from './QuestionActions/QuestionActions';
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 import ProfileOptions from './ProfileOptions/ProfileOptions';
+import FavoritesFilters from './FavoritesFilters/FavoritesFilters';
+import FavoriteQuestionList from './FavoriteQuestionList/FavoriteQuestionList';
 
 export {
   LandingPage,
@@ -22,4 +24,6 @@ export {
   QuestionActions,
   ProfileHeader,
   ProfileOptions,
+  FavoritesFilters,
+  FavoriteQuestionList,
 };

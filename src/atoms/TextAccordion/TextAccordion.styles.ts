@@ -10,4 +10,5 @@ export const TextAccordionStyled = styled(Accordion)({
   '&::before': {
     display: 'none',
   },
+  backgroundColor: theme.colors.mainColorSemiTransparent,
 });

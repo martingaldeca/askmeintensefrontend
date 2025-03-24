@@ -10,7 +10,7 @@
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "type-check": "tsc --noEmit",
-    "regenerateClient:local": "openapi -i http://localhost:3141/api/schema/ -o src/app/lib/client",
+    "regenerateClient:local": "openapi -i http://localhost:3141/api/schema/ -o src/app/lib/client & npm run preCommit",
     "generateKeyStore": "keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000",
     "capAndroid": "npx cap add android",
     "capSync": "npx cap sync",

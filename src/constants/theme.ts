@@ -7,7 +7,10 @@ export const theme = {
     mainColorShadow: '#50afef',
     textOnMainColor: '#ffffff',
 
+    mainColorSemiTransparent: 'rgba(25,118,210,0.3)',
+
     errorColor: '#e04747',
+    errorTextColor: '#ffffff',
 
     secondaryColor: '#e4dc43',
     secondaryBorderColor: '#8a3907',
@@ -42,8 +45,10 @@ export const theme = {
     smallPadding: '5px',
     mediumPadding: '15px',
     bigPadding: '30px',
+    verticalSizeTiny: '15vh',
     verticalSizeSmall: '27vh',
     verticalSizeMedium: '60vh',
+    verticalSizeLarge: '70vh',
     verticalSizeFull: '100vh',
     verticalSizeFillSmall: '63vh',
     verticalSizeFillMedium: '40vh',
@@ -53,8 +58,14 @@ export const theme = {
       toastWidth: '90%',
       toastFontSize: '16px',
     },
+    smallButton: '20%',
+    mediumButton: '50%',
+    bigButton: '70%',
+    largeButton: '80%',
+    fullButton: '100%',
   },
   cardBorderRadius: '16px',
+  maxCharacters: 25,
 };
 
 const globalTheme = createTheme({

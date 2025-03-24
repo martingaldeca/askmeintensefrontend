@@ -29,16 +29,25 @@ export class QuestionsService {
     });
   }
   /**
+   * @param category Category uuid
+   * @param level Level uuid
    * @param limit Number of results to return per page.
    * @param offset The initial index from which to return the results.
    * @returns PaginatedQuestionList
    * @throws ApiError
    */
-  public static favoriteQuestionsList(limit?: number, offset?: number): CancelablePromise<PaginatedQuestionList> {
+  public static favoriteQuestionsList(
+    category?: string,
+    level?: string,
+    limit?: number,
+    offset?: number,
+  ): CancelablePromise<PaginatedQuestionList> {
     return __request(OpenAPI, {
       method: 'GET',
       url: '/api/favorite_questions/',
       query: {
+        category: category,
+        level: level,
         limit: limit,
         offset: offset,
       },

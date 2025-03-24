@@ -12,6 +12,8 @@ export type CTAButtonProps = {
   disabledText?: string;
   centered?: boolean;
   size?: 'small' | 'medium' | 'large';
+  error?: boolean;
+  widthOption?: 'small' | 'medium' | 'big' | 'large' | 'full';
 };
 
 const CTAButton = (props: CTAButtonProps) => {
@@ -27,6 +29,8 @@ const CTAButton = (props: CTAButtonProps) => {
       withMargin={props.withMargin}
       centered={props.centered}
       size={props.size}
+      errorButton={props.error}
+      widthOption={props.widthOption}
     >
       {buttonText}
     </CTAButtonStyled>

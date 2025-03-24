@@ -37,6 +37,16 @@ const ListSelector = (props: ListSelectorProps) => {
     setAnchorEl(null);
   };
 
+  const handleClearSelection = () => {
+    if (props.type === 'category') {
+      dispatch(setSelectedCategory(undefined));
+    } else if (props.type === 'level') {
+      dispatch(setSelectedLevel(undefined));
+    }
+    setSelectedText(props.buttonText);
+    setAnchorEl(null);
+  };
+
   return (
     <ListSelectorStyled>
       <ListSelectorButtonStyled variant="contained" onClick={handleOpenMenu}>
@@ -63,6 +73,11 @@ const ListSelector = (props: ListSelectorProps) => {
           },
         }}
       >
+        {selectedText !== props.buttonText && (
+          <MenuItemStyled onClick={handleClearSelection} bold={true}>
+            Eliminar filtro
+          </MenuItemStyled>
+        )}
         {props.items?.map((item, index) => (
           <MenuItemStyled key={item.uuid} odd={index % 2 !== 0} onClick={() => handleCloseMenu(item)}>
             {'number' in item ? `${item.number} - ${item.name}` : item.name}

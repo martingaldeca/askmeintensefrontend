@@ -1,29 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Category, Level } from '@/app/lib/client';
+import type { Category, Level } from '@/app/lib/client';
 
-export interface GameOptionsState {
-  selectedCategory: Category | null;
-  selectedLevel: Level | null;
+interface GameOptionsState {
+  selectedCategory?: Category;
+  selectedLevel?: Level;
 }
 
 const initialState: GameOptionsState = {
-  selectedCategory: null,
-  selectedLevel: null,
+  selectedCategory: undefined,
+  selectedLevel: undefined,
 };
 
 export const gameOptionsSlice = createSlice({
   name: 'gameOptions',
   initialState,
   reducers: {
-    setSelectedCategory(state, action: PayloadAction<Category>) {
+    setSelectedCategory(state, action: PayloadAction<Category | undefined>) {
       state.selectedCategory = action.payload;
     },
-    setSelectedLevel(state, action: PayloadAction<Level>) {
+    setSelectedLevel(state, action: PayloadAction<Level | undefined>) {
       state.selectedLevel = action.payload;
     },
   },
 });
 
 export const { setSelectedCategory, setSelectedLevel } = gameOptionsSlice.actions;
-
 export default gameOptionsSlice.reducer;

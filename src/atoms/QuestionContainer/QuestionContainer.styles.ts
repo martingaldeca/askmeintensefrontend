@@ -17,4 +17,6 @@ export const QuestionTextContainerStyled = styled(Box)({
   border: `1px solid ${theme.colors.borderColor}`,
   borderRadius: theme.cardBorderRadius,
   padding: theme.sizes.mediumPadding,
+  marginTop: theme.sizes.bigMargin,
+  backgroundColor: theme.colors.mainColorSemiTransparent,
 });

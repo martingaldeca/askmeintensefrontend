@@ -35,7 +35,7 @@ const GeneralBottomNavigation = () => {
         break;
       case 1:
         if (user?.access) {
-          router.push(PATHS.FAVOURITES);
+          router.push(PATHS.FAVORITES);
         } else {
           toast.info('Haz login para ver tus preguntas favoritas', {
             toastId: 'login-required',
