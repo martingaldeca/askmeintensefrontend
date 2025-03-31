@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { Category, Level } from '@/app/lib/client';
+import { Category, DataService, Level } from '@/app/lib/client';
 
 interface GameOptionsState {
   selectedCategory?: Category;
@@ -17,9 +17,21 @@ export const gameOptionsSlice = createSlice({
   reducers: {
     setSelectedCategory(state, action: PayloadAction<Category | undefined>) {
       state.selectedCategory = action.payload;
+      DataService.dataEventCreate({
+        event_type: 'category_selected',
+        extra_info: action.payload,
+      }).catch(error => {
+        console.error('Error sending click event:', error);
+      });
     },
     setSelectedLevel(state, action: PayloadAction<Level | undefined>) {
       state.selectedLevel = action.payload;
+      DataService.dataEventCreate({
+        event_type: 'level_selected',
+        extra_info: action.payload,
+      }).catch(error => {
+        console.error('Error sending click event:', error);
+      });
     },
   },
 });

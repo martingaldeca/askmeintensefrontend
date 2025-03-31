@@ -76,6 +76,7 @@ export default function PregamePage() {
           onClick={handleStart}
           disabled={!selectedCategory?.uuid || !selectedLevel?.uuid}
           disabledText="Selecciona Categoría y Nivel"
+          eventType="start_game_after_selected_category_and_level"
         />
       </Container>
     </div>

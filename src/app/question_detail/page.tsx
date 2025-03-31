@@ -5,7 +5,7 @@ import { BackgroundImage, CTAButton } from '@/atoms';
 import { QuestionDetail } from '@/components';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
-import { QuestionsService } from '@/app/lib/client';
+import { DataService, QuestionsService } from '@/app/lib/client';
 import { fetchSelectedQuestion } from '@/store/slices/selectedQuestionSlice';
 import { toast } from 'react-toastify';
 import { useSession } from '@/providers/SessionProvider';
@@ -21,6 +21,19 @@ export default function QuestionDetailPage() {
     QuestionsService.randomQuestionRetrieve(selectedCategory.uuid, selectedLevel.uuid)
       .then(data => {
         dispatch(fetchSelectedQuestion(data));
+        const extra_info = {
+          ...data,
+          categoryUuid: selectedCategory.uuid,
+          categoryName: selectedCategory.name,
+          levelUuid: selectedLevel.uuid,
+          levelName: selectedLevel.name,
+        };
+        DataService.dataEventCreate({
+          event_type: 'question_detail_displayed',
+          extra_info: extra_info,
+        }).catch(error => {
+          console.error('Error sending page change event:', error);
+        });
       })
       .catch(error => {
         console.error('Error during request:', error);
@@ -45,7 +58,7 @@ export default function QuestionDetailPage() {
         <QuestionDetail category={selectedCategory} level={selectedLevel} question={selectedQuestion.instance} />
       )}
       <Box>
-        <CTAButton text="Siguiente" onClick={handleNext} />
+        <CTAButton text="Siguiente" onClick={handleNext} eventType="next_random_question" />
       </Box>
     </BackgroundImage>
   );
