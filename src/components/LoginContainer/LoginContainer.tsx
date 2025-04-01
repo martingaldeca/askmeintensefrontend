@@ -9,7 +9,7 @@ import {
 } from '@/components/LoginContainer/LoginContainer.styles';
 import { CTAButton } from '@/atoms';
 import { toast } from 'react-toastify';
-import { TokenObtainPair, TokenService } from '@/app/lib/client';
+import { DataService, TokenObtainPair, TokenService } from '@/app/lib/client';
 import { useSession } from '@/providers/SessionProvider';
 import { PATHS } from '@/constants/paths';
 import { useRouter } from 'next/navigation';
@@ -93,6 +93,11 @@ export default function LoginContainer() {
     toast.error(`Not yet available. Sorry!`, {
       toastId: 'not-available',
     });
+    DataService.dataEventCreate({
+      event_type: 'password_forgot_click',
+    }).catch(error => {
+      console.error('Error sending page change event:', error);
+    });
   };
 
   const handleSignUp = () => {
@@ -111,11 +116,9 @@ export default function LoginContainer() {
             label="Email"
             variant="standard"
             fullWidth
-            // MUI: activar estilo de error
             error={emailError}
-            // Para el shake
             className={shakeEmail ? 'shake' : ''}
-            onAnimationEnd={() => setShakeEmail(false)} // Para quitar el shake al terminar
+            onAnimationEnd={() => setShakeEmail(false)}
           />
 
           <TextField
@@ -145,10 +148,16 @@ export default function LoginContainer() {
           </ForgotPasswordStyled>
         </InputContainerStyled>
 
-        <CTAButton text="Login" submit={true} withMargin={true} />
+        <CTAButton text="Login" submit={true} withMargin={true} eventType="complete_login_button_click" />
       </form>
 
-      <CTAButton text="Registrarse" onClick={handleSignUp} primaryButton={false} withMargin={true} />
+      <CTAButton
+        text="Registrarse"
+        onClick={handleSignUp}
+        primaryButton={false}
+        withMargin={true}
+        eventType="register_from_login_button_click"
+      />
     </LoginContainerStyled>
   );
 }

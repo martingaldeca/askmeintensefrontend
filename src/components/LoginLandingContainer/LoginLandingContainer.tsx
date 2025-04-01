@@ -17,8 +17,14 @@ const LoginLandingContainer = () => {
     <LoginLandingContainerStyled>
       <Typography>¡El juego para conocer de verdad a los demás!</Typography>
       <div>
-        <CTAButton text="Login" primaryButton={false} withMargin={true} onClick={handleLogin} />
-        <CTAButton text="Registrarse" withMargin={true} onClick={handleRegister} />
+        <CTAButton
+          text="Login"
+          primaryButton={false}
+          withMargin={true}
+          onClick={handleLogin}
+          eventType="login_button_click"
+        />
+        <CTAButton text="Registrarse" withMargin={true} onClick={handleRegister} eventType="register_button_click" />
       </div>
     </LoginLandingContainerStyled>
   );

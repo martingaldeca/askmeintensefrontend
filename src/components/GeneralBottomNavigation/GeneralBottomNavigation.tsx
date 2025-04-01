@@ -12,20 +12,20 @@ import { GeneralBottomNavigationStyled } from '@/components/GeneralBottomNavigat
 import { usePathname } from 'next/navigation';
 import { PATHS, PATHS_WITHOUT_NAVBAR } from '@/constants/paths';
 import { useSession } from '@/providers/SessionProvider';
-import { DataService } from "@/app/lib/client";
+import { DataService } from '@/app/lib/client';
 
 const GeneralBottomNavigation = () => {
   const [value, setValue] = React.useState(0);
   const router = useRouter();
   const pathname = usePathname();
   const { user } = useSession();
-  
+
   const shouldHideNav = PATHS_WITHOUT_NAVBAR.includes(pathname as PATHS);
-  
+
   if (shouldHideNav) {
     return <></>;
   }
-  
+
   const loginOrProfileText = user?.access ? 'Perfil' : 'Login';
   const loginOrProfileIcon = user?.access ? <PersonIcon /> : <LoginIcon />;
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
@@ -74,7 +74,7 @@ const GeneralBottomNavigation = () => {
         break;
     }
   };
-  
+
   return (
     <GeneralBottomNavigationStyled>
       <BottomNavigation showLabels value={value} onChange={handleChange}>
