@@ -13,6 +13,7 @@ import {
   ProfileOptionsStyled,
 } from '@/components/ProfileOptions/ProfileOptions.styles';
 import { toast } from 'react-toastify';
+import { DataService } from '@/app/lib/client';
 
 const ProfileOptions = () => {
   const { logout } = useSession();
@@ -21,6 +22,14 @@ const ProfileOptions = () => {
     toast.error(`Not yet available. Sorry!`, {
       toastId: 'not-available',
     });
+  };
+  const handleLogout = () => {
+    DataService.dataEventCreate({
+      event_type: 'logout',
+    }).catch(error => {
+      console.error('Error sending page change event:', error);
+    });
+    logout();
   };
 
   return (
@@ -79,7 +88,7 @@ const ProfileOptions = () => {
         </ListItemButton>
       </ListItem>
       <Divider />
-      <ListItem onClick={logout}>
+      <ListItem onClick={handleLogout}>
         <ListItemButton>
           <ListItemIcon>
             <LogoutIcon color="error" />

@@ -28,7 +28,7 @@ const FavoriteQuestionList: React.FC = () => {
 
   useEffect(() => {
     fetchFavorites();
-  }, [selectedCategory, selectedLevel]);
+  }, [fetchFavorites, selectedCategory, selectedLevel]);
 
   const handleRemoveFavorite = (questionUuid: string) => {
     QuestionsService.questionsReactRemoveCreate(questionUuid, {

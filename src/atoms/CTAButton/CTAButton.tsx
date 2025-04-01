@@ -14,6 +14,7 @@ export type CTAButtonProps = {
   size?: 'small' | 'medium' | 'large';
   error?: boolean;
   widthOption?: 'small' | 'medium' | 'big' | 'large' | 'full';
+  eventType?: string;
 };
 
 const CTAButton = (props: CTAButtonProps) => {
@@ -31,6 +32,7 @@ const CTAButton = (props: CTAButtonProps) => {
       size={props.size}
       errorButton={props.error}
       widthOption={props.widthOption}
+      data-event-type={props.eventType}
     >
       {buttonText}
     </CTAButtonStyled>

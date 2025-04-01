@@ -11,6 +11,7 @@ export type { AddOrRemoveInputReactionRequest } from './models/AddOrRemoveInputR
 export type { AddOrRemoveReaction } from './models/AddOrRemoveReaction';
 export { AvatarEnum } from './models/AvatarEnum';
 export type { Category } from './models/Category';
+export type { DataEvent } from './models/DataEvent';
 export type { GoogleSocialAuth } from './models/GoogleSocialAuth';
 export type { Level } from './models/Level';
 export type { Me } from './models/Me';
@@ -27,6 +28,7 @@ export type { TokenObtainPair } from './models/TokenObtainPair';
 export type { TokenRefresh } from './models/TokenRefresh';
 export type { TokenVerify } from './models/TokenVerify';
 
+export { DataService } from './services/DataService';
 export { QuestionsService } from './services/QuestionsService';
 export { TokenService } from './services/TokenService';
 export { UsersService } from './services/UsersService';
